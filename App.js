@@ -1,9 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import { Platform, StatusBar, StyleSheet, View } from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
 import AppNavigator from "./navigation/AppNavigator";
 
-export default class App extends React.Component {
+import { createSwitchNavigator } from "react-navigation";
+import AppDrawerNavigator from "./navigation/AppDrawerNavigator";
+import HomeScreen from "./screens/HomeScreen";
+// import Signup from './screens/SignUp';
+
+export default class App extends Component {
   state = {
     isLoadingComplete: false
   };
@@ -19,10 +24,10 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === "ios" && <StatusBar barStyle="default" />}
-          <AppNavigator />
-        </View>
+        // <View style={styles.container}>
+        // {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+        <AppNavigator />
+        // </View>
       );
     }
   }
@@ -61,3 +66,36 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   }
 });
+// import React, { Component } from 'react';
+// import { createSwitchNavigator } from 'react-navigation';
+// import AppDrawerNavigator from './navigations/AppDrawerNavigator';
+// import Login from './screens/Login';
+// import Signup from './screens/SignUp';
+// import { Font } from 'expo';
+
+// const Router = createSwitchNavigator(
+//   {
+//     Login: Login,
+//     Signup: Signup,
+//     App: AppDrawerNavigator,
+//   },
+//   {
+//     initialRouteName: 'Login',
+//   }
+// );
+
+// console.disableYellowBox = true;
+
+// export default class App extends Component {
+//   async componentDidMount() {
+//     await Font.loadAsync({
+//       Roboto: require('./assets/fonts/Roboto-Regular.ttf'),
+//       Oxygen: require('./assets/fonts/Oxygen-Regular.ttf'),
+//       Abril: require('./assets/fonts/AbrilFatface-Regular.ttf'),
+//     });
+//   }
+
+//   render() {
+//     return <Router />;
+//   }
+// }

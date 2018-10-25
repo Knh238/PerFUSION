@@ -12,6 +12,7 @@ import AppTabNavigator from "./AppTabNavigator";
 // import Profile from "../screens/Profile";
 // import Photos from "../screens/Photos";
 // import CreatePhoto from "../screens/CreatePhoto";
+// import HeartIcon from 'material-ui'
 
 const AppStackNavigator = createStackNavigator(
   {
@@ -19,10 +20,12 @@ const AppStackNavigator = createStackNavigator(
       screen: AppTabNavigator,
       navigationOptions: ({ navigation }) => ({
         headerTitle: (
-          <Image
-            source={require("../assets/images/heart.png")}
-            style={{ width: 150, height: 60 }}
-          />
+          // <Image
+          //   source={require("../assets/images/heart.png")}
+          //   style={{ width: 10, height: 10 }}
+          // />
+          <Icon name="heartbeat" type="font-awesome" color="royalblue" />
+          // <HeartIcon/>
         ),
         headerTintColor: "#000000",
         headerBackTitle: null,

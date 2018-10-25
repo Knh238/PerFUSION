@@ -13,61 +13,61 @@ import {
   ListItem,
   Footer
 } from "native-base";
-import { Avatar, Divider } from "react-native-elements";
+import { Avatar, Divider, Icon } from "react-native-elements";
 import AppStackNavigator from "./AppStackNavigator";
 import LinksScreen from "../screens/LinksScreen";
 // import Login from "../screens/Login";
 // import Todo from "../screens/ToDo";
-// import firebase from "../firebase";
+import firebase from "../firebase";
 // import CreateProject from "../screens/CreateProject";
 // import ProjectHome from "../screens/ProjectHome";
 // import Profile from "../screens/Profile";
 // import Photos from "../screens/Photos";
 
-// const logOut = function() {
-//   firebase
-//     .auth()
-//     .signOut()
-//     .then(
-//       function() {
-//         console.log("Sign out complete.");
-//       },
-//       function(error) {
-//         console.error(error);
-//       }
-//     );
-// };
+const logOut = function() {
+  firebase
+    .auth()
+    .signOut()
+    .then(
+      function() {
+        console.log("Sign out complete.");
+      },
+      function(error) {
+        console.error(error);
+      }
+    );
+};
 
-// const LogoutButton = props => {
-//   return firebase.auth().currentUser ? (
-//     <Footer
-//       style={{
-//         flexDirection: "column",
-//         height: 90
-//       }}
-//     >
-//       <Button
-//         full
-//         light
-//         onPress={() => props.navigation.navigate("Create")}
-//         style={{ borderColor: "#c0c0c0" }}
-//       >
-//         <Text style={{ fontFamily: "Oxygen" }}>Create Project</Text>
-//       </Button>
-//       <Divider style={{ backgroundColor: "#c0c0c0" }} />
-//       <Button
-//         full
-//         light
-//         onPress={() => {
-//           logOut();
-//           props.navigation.navigate("Login");
-//         }}
-//       >
-//         <Text style={{ fontFamily: "Oxygen" }}>LOGOUT</Text>
-//       </Button>
-//     </Footer>
-//   ) : null;
-// };
+const LogoutButton = props => {
+  return firebase.auth().currentUser ? (
+    <Footer
+      style={{
+        flexDirection: "column",
+        height: 90
+      }}
+    >
+      <Button
+        full
+        light
+        onPress={() => props.navigation.navigate("Create")}
+        style={{ borderColor: "#c0c0c0" }}
+      >
+        <Text style={{ fontFamily: "permanent-marker" }}>Create Project</Text>
+      </Button>
+      <Divider style={{ backgroundColor: "#c0c0c0" }} />
+      <Button
+        full
+        light
+        onPress={() => {
+          logOut();
+          props.navigation.navigate("Login");
+        }}
+      >
+        <Text style={{ fontFamily: "permanent-marker" }}>LOGOUT</Text>
+      </Button>
+    </Footer>
+  ) : null;
+};
 
 class CustomDrawer extends Component {
   constructor() {
@@ -117,9 +117,15 @@ class CustomDrawer extends Component {
       <Container>
         <Header style={{ height: 80 }}>
           <Body>
-            <Image
-              style={{ height: 30, width: 30 }}
+            {/* <Image
+              style={{ height: 60, width: 60 }}
               source={require("../assets/images/heart.png")}
+            /> */}
+            <Icon
+              reverse
+              name="heartbeat"
+              type="font-awesome"
+              color="royalblue"
             />
           </Body>
         </Header>
@@ -157,7 +163,7 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Photos")}
               >
-                <Text style={{ fontFamily: "Roboto" }}>Photos</Text>
+                <Text style={{ fontFamily: "Roboto" }}>Images</Text>
               </ListItem>
               <ListItem
                 style={{
@@ -166,7 +172,9 @@ class CustomDrawer extends Component {
                   backgroundColor: "#F2F2F2"
                 }}
               >
-                <Text style={{ fontFamily: "Roboto" }}>Personal projects</Text>
+                <Text style={{ fontFamily: "permanent-marker" }}>
+                  Chapter 1
+                </Text>
               </ListItem>
               {this.state.personal
                 ? this.state.personal.map(project => {
@@ -199,7 +207,7 @@ class CustomDrawer extends Component {
                             backgroundColor: `#${project.color}`
                           }}
                         />
-                        <Text style={{ fontFamily: "PermanentMarker" }}>
+                        <Text style={{ fontFamily: "permanent-marker" }}>
                           {project.name}
                         </Text>
                       </ListItem>
@@ -214,9 +222,7 @@ class CustomDrawer extends Component {
                   backgroundColor: "#F2F2F2"
                 }}
               >
-                <Text style={{ fontFamily: "PermanentMarker" }}>
-                  Group projects
-                </Text>
+                <Text style={{ fontFamily: "permanent-marker" }}>Chapter2</Text>
               </ListItem>
               {this.state.groups
                 ? this.state.groups.map(project => {
@@ -249,7 +255,7 @@ class CustomDrawer extends Component {
                             backgroundColor: `#${project.color}`
                           }}
                         />
-                        <Text style={{ fontFamily: "PermanentMarker" }}>
+                        <Text style={{ fontFamily: "permanent-marker" }}>
                           {project.name}
                         </Text>
                       </ListItem>

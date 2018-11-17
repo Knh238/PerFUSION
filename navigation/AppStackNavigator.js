@@ -4,7 +4,8 @@ import { Icon } from "react-native-elements";
 import { createStackNavigator } from "react-navigation";
 import AppTabNavigator from "./AppTabNavigator";
 // import Login from "../screens/Login";
-// import Todo from "../screens/ToDo";
+import Todo from "../screens/ToDo";
+import ChapterOne from "../screens/Chapter1";
 // import CreateProject from "../screens/CreateProject";
 // import CreateEvent from "../screens/CreateEvent";
 // import CreateTodo from "../screens/CreateTodo";
@@ -44,43 +45,16 @@ const AppStackNavigator = createStackNavigator(
           </TouchableOpacity>
         )
       })
+    },
+    Todo: {
+      screen: Todo,
+      headerRight: null
+    },
+    ChapterOne: {
+      screen: ChapterOne,
+      // headerRight: null,
+      appBarVisible: true
     }
-    // Login: {
-    //   screen: Login,
-    //   headerRight: null
-    // },
-    // Todo: {
-    //   screen: Todo,
-    //   headerRight: null
-    // },
-    // Create: {
-    //   screen: CreateProject,
-    //   headerRight: null
-    // },
-    // CreateEvent: {
-    //   screen: CreateEvent,
-    //   headerRight: null
-    // },
-    // CreateTodo: {
-    //   screen: CreateTodo,
-    //   headerRight: null
-    // },
-    // ProjectHome: {
-    //   screen: ProjectHome,
-    //   headerRight: null
-    // },
-    // Profile: {
-    //   screen: Profile,
-    //   headerRight: null
-    // },
-    // Photos: {
-    //   screen: Photos,
-    //   headerRight: null
-    // },
-    // CreatePhoto: {
-    //   screen: CreatePhoto,
-    //   headerRight: null
-    // }
   },
   {
     cardStyle: { backgroundColor: "#FFFFFF" }

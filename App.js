@@ -1,11 +1,19 @@
 import React, { Component } from "react";
-import { Platform, StatusBar, StyleSheet, View } from "react-native";
+import {
+  Platform,
+  StatusBar,
+  StyleSheet,
+  View,
+  SafeAreaView
+} from "react-native";
 import { AppLoading, Asset, Font, Icon } from "expo";
-import AppNavigator from "./navigation/AppNavigator";
+// import AppNavigator from "./navigation/AppNavigator";
 
 import { createSwitchNavigator } from "react-navigation";
 import AppDrawerNavigator from "./navigation/AppDrawerNavigator";
 import HomeScreen from "./screens/HomeScreen";
+import AppTabNavigator from "./navigation/AppTabNavigator";
+import AppStackNavigator from "./navigation/AppStackNavigator";
 // import Signup from './screens/SignUp';
 
 export default class App extends Component {
@@ -25,8 +33,12 @@ export default class App extends Component {
     } else {
       return (
         // <View style={styles.container}>
-        // {Platform.OS === "ios" && <StatusBar barStyle="default" />}
+        // <SafeAreaView>
+        /* // {Platform.OS === "ios" && <StatusBar barStyle="default" />} */
+        // <View>
         <AppDrawerNavigator />
+        // <AppStackNavigator />
+        //   <AppTabNavigator />
         // </View>
       );
     }

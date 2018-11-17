@@ -16,9 +16,11 @@ import {
 import { Avatar, Divider, Icon } from "react-native-elements";
 import AppStackNavigator from "./AppStackNavigator";
 import LinksScreen from "../screens/LinksScreen";
+import HomeScreen from "../screens/HomeScreen";
 // import Login from "../screens/Login";
-// import Todo from "../screens/ToDo";
+import Todo from "../screens/ToDo";
 import firebase from "../firebase";
+import ChapterOne from "../screens/Chapter1";
 // import CreateProject from "../screens/CreateProject";
 // import ProjectHome from "../screens/ProjectHome";
 // import Profile from "../screens/Profile";
@@ -72,47 +74,75 @@ const LogoutButton = props => {
 class CustomDrawer extends Component {
   constructor() {
     super();
-    this.state = {
-      groups: [],
-      personal: []
-    };
+    this.state = {};
   }
 
+  // componentDidMount() {
+  //   const self = this;
+  // let groupProjects;
+  // let userProjects;
+  // firebase.auth().onAuthStateChanged(async function(user) {
+  //   if (user) {
+  //     const projects = await firebase
+  //       .database()
+  //       .ref("projects")
+  //       .once("value")
+  //       .then(snap => snap.val());
+  //     groupProjects = [];
+  //     userProjects = [];
+  //     for (let key in projects) {
+  //       if (projects[key].members) {
+  //         const members = projects[key].members;
+  //         const name = projects[key].name;
+  //         const color = projects[key].color;
+  //         if (members.includes(user.email) && members.length > 1) {
+  //           groupProjects.push({ name, key, color, members });
+  //         } else if (members[0] === user.email) {
+  //           userProjects.push({ name, key, color, members });
+  //         }
+  //       }
+  //     }
+  //     self.setState({
+  //       groups: groupProjects,
+  //       personal: userProjects
+  //     });
+  //   }
+  // });
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  // }
+
   componentDidMount() {
-    const self = this;
-    let groupProjects;
-    let userProjects;
-    firebase.auth().onAuthStateChanged(async function(user) {
-      if (user) {
-        const projects = await firebase
-          .database()
-          .ref("projects")
-          .once("value")
-          .then(snap => snap.val());
-        groupProjects = [];
-        userProjects = [];
-        for (let key in projects) {
-          if (projects[key].members) {
-            const members = projects[key].members;
-            const name = projects[key].name;
-            const color = projects[key].color;
-            if (members.includes(user.email) && members.length > 1) {
-              groupProjects.push({ name, key, color, members });
-            } else if (members[0] === user.email) {
-              userProjects.push({ name, key, color, members });
-            }
-          }
+    this._mounted = true;
+    var self = this;
+    // await firebase.auth().onAuthStateChanged(function(user) {
+    //   if (user) {
+    const ref = firebase.database().ref();
+    ref.on("value", function(snapshot) {
+      const chapters = snapshot.val().chapters;
+      let chapterOne;
+      for (var key in chapters) {
+        if (chapters[key].title === 1) {
+          chapterOne = chapters[key];
+          // console.log(
+          //   "chapter one in componente did mount for drawer",
+          //   chapterOne
+          // );
         }
-        self.setState({
-          groups: groupProjects,
-          personal: userProjects
-        });
       }
+      self.setState({ chapter: chapterOne });
     });
+    //   } else {
+    //     console.log("not logged in");
+    //   }
+    // });
   }
 
   render() {
     const nav = this.props.navigation;
+    const chapter = this.state.chapter;
+    // console.log("this chapter thing in the drawer render", chapter);
     return (
       <Container>
         <Header style={{ height: 80 }}>
@@ -126,6 +156,7 @@ class CustomDrawer extends Component {
               name="heartbeat"
               type="font-awesome"
               color="royalblue"
+              onPress={() => nav.navigate("Home")}
             />
           </Body>
         </Header>
@@ -171,11 +202,57 @@ class CustomDrawer extends Component {
                   paddingLeft: 10,
                   backgroundColor: "#F2F2F2"
                 }}
+                onPress={() =>
+                  nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                }
               >
                 <Text style={{ fontFamily: "permanent-marker" }}>
                   Chapter 1
                 </Text>
               </ListItem>
+              <List style={{ marginLeft: "5%" }}>
+                <ListItem
+                  title="1.1"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                  }
+                >
+                  <Text style={{ fontFamily: "permanent-marker" }}>1.1</Text>
+                </ListItem>
+                <ListItem
+                  title="1.2"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                  }
+                >
+                  <Text style={{ fontFamily: "permanent-marker" }}>1.2</Text>
+                </ListItem>
+                <ListItem
+                  title="1.3"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                  }
+                >
+                  <Text style={{ fontFamily: "permanent-marker" }}>1.3</Text>
+                </ListItem>
+                <ListItem
+                  title="1.4"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                  }
+                >
+                  <Text style={{ fontFamily: "permanent-marker" }}>1.4</Text>
+                </ListItem>
+                <ListItem
+                  title="1.5"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
+                  }
+                >
+                  <Text style={{ fontFamily: "permanent-marker" }}>1.5</Text>
+                </ListItem>
+              </List>
+
               {this.state.personal
                 ? this.state.personal.map(project => {
                     return (
@@ -222,8 +299,55 @@ class CustomDrawer extends Component {
                   backgroundColor: "#F2F2F2"
                 }}
               >
-                <Text style={{ fontFamily: "permanent-marker" }}>Chapter2</Text>
+                <Text style={{ fontFamily: "permanent-marker" }}>
+                  Chapter 2
+                </Text>
               </ListItem>
+              <List style={{ marginLeft: "5%" }}>
+                <ListItem title="1.1">
+                  <Text style={{ fontFamily: "permanent-marker" }}>2.1</Text>
+                </ListItem>
+                <ListItem title="1.2">
+                  <Text style={{ fontFamily: "permanent-marker" }}>2.2</Text>
+                </ListItem>
+                <ListItem title="1.3">
+                  <Text style={{ fontFamily: "permanent-marker" }}>2.3</Text>
+                </ListItem>
+                <ListItem title="1.4">
+                  <Text style={{ fontFamily: "permanent-marker" }}>2.4</Text>
+                </ListItem>
+                <ListItem title="1.5">
+                  <Text style={{ fontFamily: "permanent-marker" }}>2.5</Text>
+                </ListItem>
+              </List>
+              <ListItem
+                style={{
+                  marginLeft: 0,
+                  paddingLeft: 10,
+                  backgroundColor: "#F2F2F2"
+                }}
+              >
+                <Text style={{ fontFamily: "permanent-marker" }}>
+                  Chapter 3
+                </Text>
+              </ListItem>
+              <List style={{ marginLeft: "5%" }}>
+                <ListItem title="1.1">
+                  <Text style={{ fontFamily: "permanent-marker" }}>3.1</Text>
+                </ListItem>
+                <ListItem title="1.2">
+                  <Text style={{ fontFamily: "permanent-marker" }}>3.2</Text>
+                </ListItem>
+                <ListItem title="1.3">
+                  <Text style={{ fontFamily: "permanent-marker" }}>3.3</Text>
+                </ListItem>
+                <ListItem title="1.4">
+                  <Text style={{ fontFamily: "permanent-marker" }}>3.4</Text>
+                </ListItem>
+                <ListItem title="1.5">
+                  <Text style={{ fontFamily: "permanent-marker" }}>3.5</Text>
+                </ListItem>
+              </List>
               {this.state.groups
                 ? this.state.groups.map(project => {
                     return (
@@ -274,7 +398,8 @@ class CustomDrawer extends Component {
 const AppDrawerNavigator = createDrawerNavigator(
   {
     Home: AppStackNavigator,
-    Links: LinksScreen
+    Links: LinksScreen,
+    ChapterOne: ChapterOne
 
     // Todo: Todo,
     // Create: CreateProject,

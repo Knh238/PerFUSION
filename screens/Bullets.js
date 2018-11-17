@@ -1,13 +1,28 @@
 import React, { Component } from "react";
 import { ScrollView, SafeAreaView, Text } from "react-native";
-import { Button, CheckBox, ListItem, List } from "react-native-elements";
+import {
+  Container,
+  Header,
+  Content,
+  Body,
+  List,
+  ListItem,
+  Footer,
+  Left,
+  Right
+} from "native-base";
+import { Button, CheckBox } from "react-native-elements";
 import { Card } from "react-native-material-ui";
 
 const Bullets = function(props) {
   //   console.log("props in bullets", props);
   const { notes } = props;
   return notes.map(item => {
-    return <ListItem title={item} />;
+    return (
+      <ListItem title={item}>
+        <Text>item</Text>
+      </ListItem>
+    );
   });
 };
 export default Bullets;

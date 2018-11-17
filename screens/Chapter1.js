@@ -1,7 +1,24 @@
 import React, { Component } from "react";
-import { ScrollView, SafeAreaView, Text, View } from "react-native";
-import { Button, CheckBox, ListItem, List, Card } from "react-native-elements";
-// import { Card } from "react-native-material-ui";
+import {
+  ScrollView,
+  SafeAreaView,
+  Text,
+  View,
+  TouchableOpacity
+} from "react-native";
+import { Button, CheckBox } from "react-native-elements";
+import { Card, List, ListItem } from "react-native-material-ui";
+// import {
+//   Container,
+//   Header,
+//   Content,
+//   Body,
+//   List,
+//   ListItem,
+//   Footer,
+//   Left,
+//   Right
+// } from "native-base";
 import Bullets from "./Bullets";
 var firebase = require("firebase");
 import AppTabNavigator from "../navigation/AppTabNavigator";
@@ -17,6 +34,7 @@ class ChapterOne extends Component {
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
+    this.makeList = this.makeList.bind(this);
   }
 
   //   componentDidMount() {
@@ -63,6 +81,23 @@ class ChapterOne extends Component {
   //         .remove();
   //     });
   //   }
+  makeList(notes) {
+    // return notes.map(note => {
+    console.log(notes);
+    // return (
+    //   <Text> notes</Text>
+    // <ListItem
+    //   key={note.key}
+    //   title={note.content}
+    //   //   subtitle={`Author: ${note.author}`}
+    //   //   titleNumberOfLines={0}
+    //   rightIcon={{ name: "delete", style: { marginRight: 10 } }}
+    //   onPressRightIcon={() => this.deletenote(note.key)}
+    //   leftIcon={{ name: "lens", color: "#" + note.color }}
+    // />
+    // );
+    // });
+  }
 
   render() {
     const nav = this.props.navigation;
@@ -77,31 +112,9 @@ class ChapterOne extends Component {
       <SafeAreaView style={{ marginTop: 10, backgroundColor: "#5FA6B9" }}>
         <ScrollView>
           <View>
-            {/* <List> */}
             {chapter
               ? chapter.subsections[0].sections.map(task => {
                   return (
-                    // <ListItem
-                    //   //   rightIcon={{ name: "lens", color: "#" + task.color }}
-                    //   key={task.key}
-                    //   title={task.num}
-                    //   subtitle={`Assigned: ${task.num}`}
-                    //   leftIcon={
-                    //     <CheckBox
-                    //       containerStyle={{
-                    //         marginLeft: 0,
-                    //         marginRight: 0,
-                    //         borderWidth: 0,
-                    //         backgroundColor: "white"
-                    //       }}
-                    //       //   checkedColor={"#" + task.color}
-                    //       checkedIcon="dot-circle-o"
-                    //       uncheckedIcon="circle-o"
-                    //       //   checked={this.state[task.key]}
-                    //       //   onPress={() => this.handleCheck(task.key)}
-                    //     />
-                    //   }
-                    // >
                     <Card
                       //   containerStyle={{ backgroundColor: "grey" }}
                       style={{
@@ -109,81 +122,84 @@ class ChapterOne extends Component {
                         alignContent: "space-between"
                       }}
                     >
-                      <Text
+                      <TouchableOpacity
+                        onPress={() =>
+                          //   console.log("this is pressed", task.contents)
+                          {
+                            this.makeList(task.contents);
+                          }
+                        }
+                      >
+                        <Text
+                          style={{
+                            fontSize: 28,
+                            color: "rgba(96,100,109, 1)",
+                            textAlign: "center",
+                            fontFamily: "firaBold"
+                          }}
+                        >
+                          {task.title}
+                        </Text>
+                      </TouchableOpacity>
+
+                      {/* <List> */}
+                      {/* {`${task.contents}`.map(item => {
+                        return (
+                          // <ListItem>
+                          <Text
+                            style={{
+                              fontSize: 20,
+                              color: "rgba(96,100,109, 1)",
+                              textAlign: "center"
+                              //   fontFamily: "permanent-marker"
+                            }}
+                          >
+                            {item}
+                          </Text>
+                          // </ListItem>
+                        );
+                      })} */}
+                      {/* </List> */}
+
+                      {/* <Text
                         style={{
-                          fontSize: 28,
+                          fontSize: 20,
                           color: "rgba(96,100,109, 1)",
-                          textAlign: "center",
-                          fontFamily: "permanent-marker"
+                          textAlign: "left",
+                          marginLeft: 30,
+                          fontFamily: "fira"
                         }}
                       >
-                        {task.title}
-                      </Text>
-                      <List>
-                        <Text
-                          style={{
-                            fontSize: 20,
-                            color: "rgba(96,100,109, 1)",
-                            textAlign: "left",
-                            marginLeft: 20,
-                            fontFamily: "permanent-marker"
-                          }}
-                        >
-                          {task.contents}
-                        </Text>
+                        {task.contents}
+                      </Text> */}
 
-                        {/* <Bullets notes={task.contents} /> */}
-                        {/* <List> */}
-                        {/* <ListItem> */}
-                        {/* </Text> */}
-                      </List>
-                      {/* .map(item =>(
-                      <ListItem>
-                        <Text
-                          style={{
-                            fontSize: 20,
-                            color: "rgba(96,100,109, 1)",
-                            textAlign: "center"
-                            //   fontFamily: "permanent-marker"
-                          }}
-                        >
-                          {item.value}
-                        </Text>
-                      </ListItem>
-                      ))
-                    </List> */}
-                      {/* </Text> */}
+                      {/* </List> */}
+                      {/* </Card> */}
+                      {/* {`${task.contents}`
+                          ? this.makeList(task.contents)
+                          : null}
+                      </List> */}
+                      {/* /*{" "}
+                      {task.contents.map(item => {
+                        return (
+                          <ListItem>
+                            <Text
+                              style={{
+                                fontSize: 20,
+                                color: "rgba(96,100,109, 1)",
+                                textAlign: "center"
+                                //   fontFamily: "permanent-marker"
+                              }}
+                            >
+                              {item}
+                            </Text>
+                          </ListItem>
+                        );
+                      })} */}
                     </Card>
-
-                    /* </ListItem>  */
                   );
                 })
               : null}
-            {/* </List> */}
-            {/* <Button
-            title="NEW TO DO"
-            buttonStyle={{
-              width: "100%",
-              height: 45,
-              borderRadius: 5,
-              marginTop: 10
-            }}
-            onPress={() => {
-              nav.navigate("CreateTodo");
-            }}
-          />
-          <Button
-            title="DELETE SELECTED"
-            buttonStyle={{
-              width: "100%",
-              height: 45,
-              borderRadius: 5,
-              marginTop: 10
-            }}
-            onPress={() => {
-              this.handleSubmit();
-            }}
-          /> */}
           </View>
         </ScrollView>
       </SafeAreaView>

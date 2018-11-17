@@ -57,7 +57,14 @@ export default class App extends Component {
         // to remove this if you are not using it in your app
         "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf"),
         "permanent-marker": require("./assets/fonts/PermanentMarker-Regular.ttf"),
-        Roboto: require("./assets/fonts/Roboto-Regular.ttf")
+        Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
+        playfair: require("./assets/fonts/PlayfairDisplay-Regular.ttf"),
+        playfairBold: require("./assets/fonts/PlayfairDisplay-Bold.ttf"),
+        fira: require("./assets/fonts/FiraSans-Regular.ttf"),
+        firaBold: require("./assets/fonts/FiraSans-SemiBold.ttf"),
+        poppins: require("./assets/fonts/Poppins-Regular.ttf"),
+        patrick: require("./assets/fonts/PatrickHand-Regular.ttf"),
+        rubik: require("./assets/fonts/Rubik-Regular.ttf")
       })
     ]);
   };

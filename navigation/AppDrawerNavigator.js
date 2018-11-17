@@ -11,7 +11,11 @@ import {
   View,
   List,
   ListItem,
-  Footer
+  Footer,
+  Left,
+  Right,
+  Switch,
+  Badge
 } from "native-base";
 import { Avatar, Divider, Icon } from "react-native-elements";
 import AppStackNavigator from "./AppStackNavigator";
@@ -74,9 +78,37 @@ const LogoutButton = props => {
 class CustomDrawer extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      showOne: false,
+      showTwo: false,
+      showThree: false
+    };
+    this.clickOne = this.clickOne.bind(this);
+    this.clickOne = this.clickOne.bind(this);
+    this.clickOne = this.clickOne.bind(this);
   }
 
+  clickOne() {
+    if (!this.state.showOne) {
+      this.setState({ showOne: true });
+    } else {
+      this.setState({ showOne: false });
+    }
+  }
+  clickTwo() {
+    if (!this.state.showTwo) {
+      this.setState({ showTwo: true });
+    } else {
+      this.setState({ showTwo: false });
+    }
+  }
+  clickThree() {
+    if (!this.state.showThree) {
+      this.setState({ showThree: true });
+    } else {
+      this.setState({ showThree: false });
+    }
+  }
   // componentDidMount() {
   //   const self = this;
   // let groupProjects;
@@ -142,15 +174,11 @@ class CustomDrawer extends Component {
   render() {
     const nav = this.props.navigation;
     const chapter = this.state.chapter;
-    // console.log("this chapter thing in the drawer render", chapter);
+
     return (
       <Container>
         <Header style={{ height: 80 }}>
           <Body>
-            {/* <Image
-              style={{ height: 60, width: 60 }}
-              source={require("../assets/images/heart.png")}
-            /> */}
             <Icon
               reverse
               name="heartbeat"
@@ -176,7 +204,9 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Profile")}
               >
-                <Text style={{ fontFamily: "Roboto" }}>Profile</Text>
+                <Text style={{ fontFamily: "poppins" }}>
+                  Profile: In Poppins Font
+                </Text>
               </ListItem>
               <ListItem
                 style={{
@@ -185,7 +215,12 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Todo")}
               >
-                <Text style={{ fontFamily: "Roboto" }}>To-do</Text>
+                <Text style={{ fontFamily: "permanent-marker" }}>
+                  To-do: Permanent Marker
+                </Text>
+                <Badge primary>
+                  <Text>25</Text>
+                </Badge>
               </ListItem>
               <ListItem
                 style={{
@@ -194,9 +229,12 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Photos")}
               >
-                <Text style={{ fontFamily: "Roboto" }}>Images</Text>
+                <Text style={{ fontFamily: "rubik" }}>
+                  Images: In Rubik Font
+                </Text>
               </ListItem>
               <ListItem
+                icon
                 style={{
                   marginLeft: 0,
                   paddingLeft: 10,
@@ -206,186 +244,224 @@ class CustomDrawer extends Component {
                   nav.navigate("ChapterOne", { chapter: this.state.chapter })
                 }
               >
-                <Text style={{ fontFamily: "permanent-marker" }}>
-                  Chapter 1
-                </Text>
+                <Body>
+                  <Text style={{ fontFamily: "fira" }}>
+                    Chapter 1: In Fira Font
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon
+                    //reverse
+                    raised
+                    name="angle-double-down"
+                    type="font-awesome"
+                    color="royalblue"
+                    size="15"
+                    onPress={() => this.clickOne()}
+                  />
+                </Right>
               </ListItem>
-              <List style={{ marginLeft: "5%" }}>
-                <ListItem
-                  title="1.1"
-                  onPress={() =>
-                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
-                  }
-                >
-                  <Text style={{ fontFamily: "permanent-marker" }}>1.1</Text>
-                </ListItem>
-                <ListItem
-                  title="1.2"
-                  onPress={() =>
-                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
-                  }
-                >
-                  <Text style={{ fontFamily: "permanent-marker" }}>1.2</Text>
-                </ListItem>
-                <ListItem
-                  title="1.3"
-                  onPress={() =>
-                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
-                  }
-                >
-                  <Text style={{ fontFamily: "permanent-marker" }}>1.3</Text>
-                </ListItem>
-                <ListItem
-                  title="1.4"
-                  onPress={() =>
-                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
-                  }
-                >
-                  <Text style={{ fontFamily: "permanent-marker" }}>1.4</Text>
-                </ListItem>
-                <ListItem
-                  title="1.5"
-                  onPress={() =>
-                    nav.navigate("ChapterOne", { chapter: this.state.chapter })
-                  }
-                >
-                  <Text style={{ fontFamily: "permanent-marker" }}>1.5</Text>
-                </ListItem>
-              </List>
-
-              {this.state.personal
-                ? this.state.personal.map(project => {
-                    return (
-                      <ListItem
-                        key={project.key}
-                        title={project.name}
-                        style={{
-                          marginLeft: 0,
-                          paddingLeft: 10
-                        }}
-                        container={{
-                          flex: 1
-                        }}
+              {this.state.showOne ? (
+                <List style={{ marginLeft: "5%" }}>
+                  <ListItem icon>
+                    <Body>
+                      <Text style={{ fontFamily: "fira" }}>1.1</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        name="caret-down"
+                        type="font-awesome"
+                        color="royalblue"
                         onPress={() =>
-                          nav.navigate("ProjectHome", {
-                            project: project
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
                           })
                         }
-                      >
-                        {" "}
-                        <Avatar
-                          rounded
-                          icon={{ name: "user", type: "font-awesome" }}
-                          size="xsmall"
-                          containerStyle={{
-                            marginRight: 20
-                          }}
-                          overlayContainerStyle={{
-                            backgroundColor: `#${project.color}`
-                          }}
-                        />
-                        <Text style={{ fontFamily: "permanent-marker" }}>
-                          {project.name}
-                        </Text>
-                      </ListItem>
-                    );
-                  })
-                : null}
-
+                      />
+                    </Right>
+                  </ListItem>
+                  <ListItem
+                    icon
+                    title="1.2"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "fira" }}>1.2</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
+                  </ListItem>
+                  <ListItem
+                    icon
+                    title="1.3"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    {" "}
+                    <Body>
+                      <Text style={{ fontFamily: "firaBold" }}>
+                        1.3: Fira Bold Font
+                      </Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        reverse
+                        name="angle-double-down"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() => nav.navigate("Home")}
+                        right
+                      />
+                    </Right>
+                  </ListItem>
+                  <ListItem
+                    icon
+                    title="1.4"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    {" "}
+                    <Body>
+                      <Text style={{ fontFamily: "fira" }}>1.4</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        name="angle-double-down"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="20"
+                        onPress={() => nav.navigate("Home")}
+                        right
+                      />
+                    </Right>
+                  </ListItem>
+                  <ListItem
+                    title="1.5"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Text style={{ fontFamily: "fira" }}>1.5</Text>
+                  </ListItem>
+                </List>
+              ) : null}
               <ListItem
+                icon
                 style={{
                   marginLeft: 0,
                   paddingLeft: 10,
                   backgroundColor: "#F2F2F2"
                 }}
               >
-                <Text style={{ fontFamily: "permanent-marker" }}>
-                  Chapter 2
-                </Text>
+                <Body>
+                  <Text style={{ fontFamily: "playfair" }}>
+                    Chapter 2: In Playfair font
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon
+                    //reverse
+                    raised
+                    name="angle-double-down"
+                    type="font-awesome"
+                    color="royalblue"
+                    size="15"
+                    onPress={() => this.clickTwo()}
+                  />
+                </Right>
               </ListItem>
-              <List style={{ marginLeft: "5%" }}>
-                <ListItem title="1.1">
-                  <Text style={{ fontFamily: "permanent-marker" }}>2.1</Text>
-                </ListItem>
-                <ListItem title="1.2">
-                  <Text style={{ fontFamily: "permanent-marker" }}>2.2</Text>
-                </ListItem>
-                <ListItem title="1.3">
-                  <Text style={{ fontFamily: "permanent-marker" }}>2.3</Text>
-                </ListItem>
-                <ListItem title="1.4">
-                  <Text style={{ fontFamily: "permanent-marker" }}>2.4</Text>
-                </ListItem>
-                <ListItem title="1.5">
-                  <Text style={{ fontFamily: "permanent-marker" }}>2.5</Text>
-                </ListItem>
-              </List>
+              {this.state.showTwo ? (
+                <List style={{ marginLeft: "5%" }}>
+                  <ListItem title="2.1">
+                    <Text style={{ fontFamily: "playfair" }}>2.1</Text>
+                  </ListItem>
+                  <ListItem title="2.2">
+                    <Text style={{ fontFamily: "playfair" }}>2.2</Text>
+                  </ListItem>
+                  <ListItem title="2.3">
+                    <Text style={{ fontFamily: "playfairBold" }}>
+                      2.3: In playfair bold font
+                    </Text>
+                  </ListItem>
+                  <ListItem title="2.4">
+                    <Text style={{ fontFamily: "playfair" }}>2.4</Text>
+                  </ListItem>
+                  <ListItem title="2.5">
+                    <Text style={{ fontFamily: "playfair" }}>2.5</Text>
+                  </ListItem>
+                </List>
+              ) : null}
               <ListItem
+                icon
                 style={{
                   marginLeft: 0,
                   paddingLeft: 10,
                   backgroundColor: "#F2F2F2"
                 }}
               >
-                <Text style={{ fontFamily: "permanent-marker" }}>
-                  Chapter 3
-                </Text>
+                <Body>
+                  <Text style={{ fontFamily: "Roboto" }}>
+                    Chapter 3: In Roboto Font
+                  </Text>
+                </Body>
+                <Right>
+                  <Icon
+                    //reverse
+                    raised
+                    name="angle-double-down"
+                    type="font-awesome"
+                    color="royalblue"
+                    size="15"
+                    onPress={() => this.clickThree()}
+                  />
+                </Right>
               </ListItem>
-              <List style={{ marginLeft: "5%" }}>
-                <ListItem title="1.1">
-                  <Text style={{ fontFamily: "permanent-marker" }}>3.1</Text>
-                </ListItem>
-                <ListItem title="1.2">
-                  <Text style={{ fontFamily: "permanent-marker" }}>3.2</Text>
-                </ListItem>
-                <ListItem title="1.3">
-                  <Text style={{ fontFamily: "permanent-marker" }}>3.3</Text>
-                </ListItem>
-                <ListItem title="1.4">
-                  <Text style={{ fontFamily: "permanent-marker" }}>3.4</Text>
-                </ListItem>
-                <ListItem title="1.5">
-                  <Text style={{ fontFamily: "permanent-marker" }}>3.5</Text>
-                </ListItem>
-              </List>
-              {this.state.groups
-                ? this.state.groups.map(project => {
-                    return (
-                      <ListItem
-                        key={project.key}
-                        title={project.name}
-                        style={{
-                          marginLeft: 0,
-                          paddingLeft: 10
-                        }}
-                        container={{
-                          flex: 1
-                        }}
-                        onPress={() =>
-                          nav.navigate("ProjectHome", {
-                            project: project
-                          })
-                        }
-                      >
-                        {" "}
-                        <Avatar
-                          rounded
-                          icon={{ name: "user", type: "font-awesome" }}
-                          size="xsmall"
-                          containerStyle={{
-                            marginRight: 20
-                          }}
-                          overlayContainerStyle={{
-                            backgroundColor: `#${project.color}`
-                          }}
-                        />
-                        <Text style={{ fontFamily: "permanent-marker" }}>
-                          {project.name}
-                        </Text>
-                      </ListItem>
-                    );
-                  })
-                : null}
+              {this.state.showThree ? (
+                <List style={{ marginLeft: "5%" }}>
+                  <ListItem title="3.1">
+                    <Text style={{ fontFamily: "Roboto" }}>3.1</Text>
+                  </ListItem>
+                  <ListItem title="3.2">
+                    <Text style={{ fontFamily: "Roboto" }}>3.2</Text>
+                  </ListItem>
+                  <ListItem title="3.3">
+                    <Text style={{ fontFamily: "Roboto" }}>3.3</Text>
+                  </ListItem>
+                  <ListItem title="3.4">
+                    <Text style={{ fontFamily: "Roboto" }}>3.4</Text>
+                  </ListItem>
+                  <ListItem title="3.5">
+                    <Text style={{ fontFamily: "Roboto" }}>3.5</Text>
+                  </ListItem>
+                </List>
+              ) : null}
             </List>
           </ScrollView>
         </Content>
@@ -415,3 +491,80 @@ const AppDrawerNavigator = createDrawerNavigator(
 );
 
 export default AppDrawerNavigator;
+
+// {this.state.personal
+//   ? this.state.personal.map(project => {
+//       return (
+//         <ListItem
+//           key={project.key}
+//           title={project.name}
+//           style={{
+//             marginLeft: 0,
+//             paddingLeft: 10
+//           }}
+//           container={{
+//             flex: 1
+//           }}
+//           onPress={() =>
+//             nav.navigate("ProjectHome", {
+//               project: project
+//             })
+//           }
+//         >
+//           {" "}
+//           <Avatar
+//             rounded
+//             icon={{ name: "user", type: "font-awesome" }}
+//             size="xsmall"
+//             containerStyle={{
+//               marginRight: 20
+//             }}
+//             overlayContainerStyle={{
+//               backgroundColor: `#${project.color}`
+//             }}
+//           />
+//           <Text style={{ fontFamily: "permanent-marker" }}>
+//             {project.name}
+//           </Text>
+//         </ListItem>
+//       );
+//     })
+//   : null}
+// {this.state.groups
+//   ? this.state.groups.map(project => {
+//       return (
+//         <ListItem
+//           key={project.key}
+//           title={project.name}
+//           style={{
+//             marginLeft: 0,
+//             paddingLeft: 10
+//           }}
+//           container={{
+//             flex: 1
+//           }}
+//           onPress={() =>
+//             nav.navigate("ProjectHome", {
+//               project: project
+//             })
+//           }
+//         >
+//           {" "}
+//           <Avatar
+//             rounded
+//             icon={{ name: "user", type: "font-awesome" }}
+//             size="xsmall"
+//             containerStyle={{
+//               marginRight: 20
+//             }}
+//             overlayContainerStyle={{
+//               backgroundColor: `#${project.color}`
+//             }}
+//           />
+//           <Text style={{ fontFamily: "permanent-marker" }}>
+//             {project.name}
+//           </Text>
+//         </ListItem>
+//       );
+//     })
+//   : null}

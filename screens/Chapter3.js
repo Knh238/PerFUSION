@@ -29,7 +29,7 @@ import {
 //   Right
 // } from "native-base";
 
-import Bullets2 from "./Bullets2";
+import Bullets3 from "./Bullets3";
 var firebase = require("firebase");
 import AppTabNavigator from "../navigation/AppTabNavigator";
 
@@ -37,10 +37,10 @@ import AppTabNavigator from "../navigation/AppTabNavigator";
 //use elements
 //or native base
 
-class ChapterTwo extends Component {
+class ChapterThree extends Component {
   static navigationOptions = {
     // header: null,
-    tabBarVisible: false
+    // tabBarVisible: true
   };
   constructor(props) {
     super(props);
@@ -121,11 +121,10 @@ class ChapterTwo extends Component {
           marginBottom: 10
         }}
       >
-        {/* <SafeAreaView> */}
         <ScrollView>
           <Text
             style={{
-              fontSize: 18,
+              fontSize: 15,
               color: "white",
               marginLeft: 5,
               marginRight: 5,
@@ -141,8 +140,8 @@ class ChapterTwo extends Component {
                   <Card
                     //   containerStyle={{ backgroundColor: "grey" }}
                     style={{
-                      // display: "flex",
-                      // alignContent: "space-between",
+                      display: "flex",
+                      alignContent: "space-between",
                       fontFamily: "space-mono"
                     }}
                   >
@@ -169,25 +168,16 @@ class ChapterTwo extends Component {
                     </TouchableOpacity>
                     <Divider />
                     {this.state.show ? (
-                      <List
-                        style={{
-                          display: "flex",
-                          flexGrow: 1
-                        }}
-                      >
-                        <Bullets2 points={task.contents} />
-                      </List>
+                      <Bullets3 points={task.contents} />
                     ) : null}
                   </Card>
                 );
               })
             : null}
-          {/* </View> */}
         </ScrollView>
-        {/* </SafeAreaView> */}
       </View>
     );
   }
 }
 
-export default ChapterTwo;
+export default ChapterThree;

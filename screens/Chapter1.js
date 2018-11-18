@@ -83,49 +83,59 @@ class ChapterOne extends Component {
     const { chapter } = nav.state.params;
     // console.log("this is subsections", chapter);
     return (
-      <SafeAreaView style={{ marginTop: 10, backgroundColor: "#5FA6B9" }}>
+      <View style={{ marginTop: 10, backgroundColor: "#5FA6B9" }}>
         <ScrollView>
-          <View>
-            {chapter
-              ? chapter.subsections[0].sections.map(task => {
-                  return (
-                    <Card
-                      //   containerStyle={{ backgroundColor: "grey" }}
-                      style={{
-                        display: "flex",
-                        alignContent: "space-between"
+          <Text
+            style={{
+              fontSize: 18,
+              color: "white",
+              marginLeft: 5,
+              marginRight: 5,
+              textAlign: "center",
+              fontFamily: "playfair"
+            }}
+          >
+            native base and some material ui && font: playfair
+          </Text>
+          {chapter
+            ? chapter.subsections[0].sections.map(task => {
+                return (
+                  <Card
+                    //   containerStyle={{ backgroundColor: "grey" }}
+                    style={{
+                      display: "flex",
+                      alignContent: "space-between"
+                    }}
+                  >
+                    <TouchableOpacity
+                      onPress={() => {
+                        //   console.log("this is pressed", task.contents)
+                        //   return this.makeList(task.contents);
+                        //   <Bullets points={task.contents} />;
+                        // console.log(this.makeList(task.contents));
                       }}
                     >
-                      <TouchableOpacity
-                        onPress={() => {
-                          //   console.log("this is pressed", task.contents)
-                          //   return this.makeList(task.contents);
-                          //   <Bullets points={task.contents} />;
-                          // console.log(this.makeList(task.contents));
+                      <Text
+                        style={{
+                          fontSize: 28,
+                          // color: "rgba(96,100,109, 1)",
+                          color: "white",
+                          backgroundColor: "royalblue",
+                          textAlign: "center",
+                          fontFamily: "playfairBold"
                         }}
                       >
-                        <Text
-                          style={{
-                            fontSize: 28,
-                            // color: "rgba(96,100,109, 1)",
-                            color: "white",
-                            backgroundColor: "royalblue",
-                            textAlign: "center",
-                            fontFamily: "playfairBold"
-                          }}
-                        >
-                          {task.title}
-                        </Text>
-                      </TouchableOpacity>
+                        {task.title}
+                      </Text>
+                    </TouchableOpacity>
 
-                      <Bullets points={task.contents} />
-                    </Card>
-                  );
-                })
-              : null}
-          </View>
+                    <Bullets points={task.contents} />
+                  </Card>
+                );
+              })
+            : null}
         </ScrollView>
-      </SafeAreaView>
+      </View>
     );
   }
 }

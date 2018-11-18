@@ -7,6 +7,8 @@ import MainTabNavigator from "./MainTabNavigator";
 // import Login from "../screens/Login";
 import Todo from "../screens/ToDo";
 import ChapterOne from "../screens/Chapter1";
+import ChapterTwo from "../screens/Chapter2";
+import ChapterThree from "../screens/Chapter3";
 import ScheduleHomeScreen from "../screens/Schedule";
 import WeekScreen from "../screens/Week";
 // import CreateTodo from "../screens/CreateTodo";
@@ -49,17 +51,31 @@ const AppStackNavigator = createStackNavigator(
     },
     Todo: {
       screen: Todo,
-      headerRight: null
+      headerRight: null,
+      tabBarVisible: true
     },
     ChapterOne: {
       screen: ChapterOne,
       // headerRight: null,
       appBarVisible: true
     },
+    ChapterTwo: {
+      screen: ChapterTwo,
+      // headerRight: null,
+      appBarVisible: true
+      // tabBarVisible: true
+    },
+    ChapterTwo: {
+      screen: ChapterTwo,
+      // headerRight: null,
+      appBarVisible: true
+      // tabBarVisible: true
+    },
     Schedule: {
       screen: ScheduleHomeScreen,
       // headerRight: null,
-      appBarVisible: true
+      appBarVisible: true,
+      tabBarVisible: true
     },
     Week: {
       screen: WeekScreen,

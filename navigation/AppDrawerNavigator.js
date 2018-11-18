@@ -25,10 +25,12 @@ import HomeScreen from "../screens/HomeScreen";
 import Todo from "../screens/ToDo";
 import firebase from "../firebase";
 import ChapterOne from "../screens/Chapter1";
+import ChapterTwo from "../screens/Chapter2";
+import ChapterThree from "../screens/Chapter3";
 import ScheduleHomeScreen from "../screens/Schedule";
+import WeekScreen from "../screens/Week";
 // import ProjectHome from "../screens/ProjectHome";
-// import Profile from "../screens/Profile";
-// import Photos from "../screens/Photos";
+import Profile from "../screens/Profile";
 
 const logOut = function() {
   firebase
@@ -426,7 +428,7 @@ class CustomDrawer extends Component {
                     icon
                     title="2.1"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterTwo", {
                         chapter: this.state.chapter
                       })
                     }
@@ -443,7 +445,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterTwo", {
                             chapter: this.state.chapter
                           })
                         }
@@ -454,7 +456,7 @@ class CustomDrawer extends Component {
                     icon
                     title="2.2"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterTwo", {
                         chapter: this.state.chapter
                       })
                     }
@@ -471,7 +473,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterTwo", {
                             chapter: this.state.chapter
                           })
                         }
@@ -482,7 +484,7 @@ class CustomDrawer extends Component {
                     icon
                     title="2.3"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterTwo", {
                         chapter: this.state.chapter
                       })
                     }
@@ -499,7 +501,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterTwo", {
                             chapter: this.state.chapter
                           })
                         }
@@ -510,7 +512,7 @@ class CustomDrawer extends Component {
                     icon
                     title="2.4"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterTwo", {
                         chapter: this.state.chapter
                       })
                     }
@@ -527,7 +529,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterTwo", {
                             chapter: this.state.chapter
                           })
                         }
@@ -538,7 +540,7 @@ class CustomDrawer extends Component {
                     icon
                     title="2.5"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterTwo", {
                         chapter: this.state.chapter
                       })
                     }
@@ -555,7 +557,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterTwo", {
                             chapter: this.state.chapter
                           })
                         }
@@ -603,14 +605,14 @@ class CustomDrawer extends Component {
                     </Body>
                     <Right>
                       <Icon
-                        //reverse
+                        reverse
                         raised
-                        name="chevron-right"
+                        name="caret-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterThree", {
                             chapter: this.state.chapter
                           })
                         }
@@ -621,7 +623,7 @@ class CustomDrawer extends Component {
                     icon
                     title="3.2"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterThree", {
                         chapter: this.state.chapter
                       })
                     }
@@ -638,7 +640,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterThree", {
                             chapter: this.state.chapter
                           })
                         }
@@ -649,7 +651,7 @@ class CustomDrawer extends Component {
                     icon
                     title="3.3"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterThree", {
                         chapter: this.state.chapter
                       })
                     }
@@ -666,7 +668,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterThree", {
                             chapter: this.state.chapter
                           })
                         }
@@ -677,7 +679,7 @@ class CustomDrawer extends Component {
                     icon
                     title="3.4"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterThree", {
                         chapter: this.state.chapter
                       })
                     }
@@ -694,7 +696,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterThree", {
                             chapter: this.state.chapter
                           })
                         }
@@ -706,7 +708,7 @@ class CustomDrawer extends Component {
                     icon
                     title="3.5"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterThree", {
                         chapter: this.state.chapter
                       })
                     }
@@ -723,7 +725,7 @@ class CustomDrawer extends Component {
                         color="royalblue"
                         size="15"
                         onPress={() =>
-                          nav.navigate("ChapterOne", {
+                          nav.navigate("ChapterThree", {
                             chapter: this.state.chapter
                           })
                         }
@@ -745,13 +747,13 @@ const AppDrawerNavigator = createDrawerNavigator(
   {
     Home: AppStackNavigator,
     Links: LinksScreen,
-    ChapterOne: ChapterOne
-
-    // Todo: Todo,
-    // Create: CreateProject,
-    // ProjectHome: ProjectHome,
-    // Profile: Profile,
-    // Photos: Photos
+    ChapterOne: ChapterOne,
+    ChapterTwo: ChapterTwo,
+    ChapterThree: ChapterThree,
+    Todo: Todo,
+    Profile: Profile,
+    Week: WeekScreen,
+    Schedule: ScheduleHomeScreen
   },
   {
     initialRouteName: "Home",

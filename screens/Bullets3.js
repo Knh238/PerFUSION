@@ -13,8 +13,8 @@ import {
 } from "native-base";
 import { Button, CheckBox } from "react-native-elements";
 import { Card } from "react-native-material-ui";
-// import { Card, List, ListItem, Divider } from "react-native-material-ui";
-class Bullets extends Component {
+
+class Bullets3 extends Component {
   constructor(props) {
     super(props);
     this.state = { points: this.props.points };
@@ -35,20 +35,14 @@ class Bullets extends Component {
               //   color: "rgba(96,100,109, 1)",
               textAlign: "left",
               marginLeft: 20,
-              fontFamily: "playfair"
+              fontFamily: "playfairBold"
             }}
           >
             {item}
           </Text>
         </ListItem>
       ))
-      //   </List>
     );
   }
 }
-export default Bullets;
-// class ChapterOne extends Component {
-//     static navigationOptions = {
-//       header: null
-//     };
-//     constructor(props) {
+export default Bullets3;

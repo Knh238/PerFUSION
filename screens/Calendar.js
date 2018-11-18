@@ -1,6 +1,9 @@
 import React from "react";
 import { Calendar } from "react-native-calendars"; // 1.5.3
-import { View } from "react-native";
+import { View, Text } from "react-native";
+import { List, ListItem, Body, Right, Left } from "native-base";
+import { Avatar, Divider, Icon } from "react-native-elements";
+import moment from "moment";
 var firebase = require("firebase");
 // import EventList from "./EventList";
 
@@ -101,6 +104,14 @@ export default class CalendarView extends React.Component {
   }
 
   render() {
+    const examDates = ["2018-11-10", "2018-12-10", "2019-01-10", "2019-02-10"];
+    // const today = new Date();
+    const today = moment()
+      .format()
+      .slice(0, 10);
+    console.log("today in this", today);
+    //moment().format();
+    // console.log("today as utc string", today.slice(3, 15));
     return (
       <View style={{ height: 600 }}>
         <Calendar
@@ -122,6 +133,64 @@ export default class CalendarView extends React.Component {
             curEvents={this.state.curItems}
           />
         ) : null}
+        <List>
+          <Text
+            style={{
+              fontSize: 28,
+              color: "rgba(96,100,109, 1)",
+              textAlign: "center",
+              fontFamily: "playfair"
+            }}
+          >
+            {" "}
+            Upcoming Test Dates
+          </Text>
+          {examDates.map(test => (
+            <ListItem icon>
+              <Left>
+                <Icon
+                  // raised
+                  name="circle"
+                  type="font-awesome"
+                  //color={moment(`${test}`).fromNow() <= 0 ? "red" : "royalblue"}
+                  // color={today - `${test}` < 0 ? "red" : "royalblue"}
+                  color="royalblue"
+                  size="20"
+                  onPress={() =>
+                    nav.navigate("ChapterOne", {
+                      chapter: this.state.chapter
+                    })
+                  }
+                />
+              </Left>
+              <Body>
+                <Text
+                  style={{
+                    fontSize: 18,
+                    color: "rgba(96,100,109, 1)",
+                    // textAlign: "center",
+                    fontFamily: "playfair"
+                  }}
+                >
+                  {test}
+                </Text>
+              </Body>
+              <Right>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    // color: "rgba(96,100,109, 1)",
+                    color: "#1565C0",
+                    // textAlign: "center",
+                    fontFamily: "permanent-marker"
+                  }}
+                >
+                  {moment(`${test}`).fromNow()}
+                </Text>
+              </Right>
+            </ListItem>
+          ))}
+        </List>
       </View>
     );
   }

@@ -3,6 +3,7 @@ import { View, TouchableOpacity, Image } from "react-native";
 import { Icon } from "react-native-elements";
 import { createStackNavigator } from "react-navigation";
 import AppTabNavigator from "./AppTabNavigator";
+import MainTabNavigator from "./MainTabNavigator";
 // import Login from "../screens/Login";
 import Todo from "../screens/ToDo";
 import ChapterOne from "../screens/Chapter1";
@@ -18,7 +19,7 @@ import ChapterOne from "../screens/Chapter1";
 const AppStackNavigator = createStackNavigator(
   {
     AppTabNavigator: {
-      screen: AppTabNavigator,
+      screen: MainTabNavigator,
       navigationOptions: ({ navigation }) => ({
         headerTitle: (
           // <Image

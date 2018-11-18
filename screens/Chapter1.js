@@ -7,18 +7,8 @@ import {
   TouchableOpacity
 } from "react-native";
 import { Button, CheckBox } from "react-native-elements";
-import { Card, List, ListItem } from "react-native-material-ui";
-// import {
-//   Container,
-//   Header,
-//   Content,
-//   Body,
-//   List,
-//   ListItem,
-//   Footer,
-//   Left,
-//   Right
-// } from "native-base";
+import { Card, List, ListItem, Divider } from "react-native-material-ui";
+
 import Bullets from "./Bullets";
 var firebase = require("firebase");
 import AppTabNavigator from "../navigation/AppTabNavigator";
@@ -34,7 +24,8 @@ class ChapterOne extends Component {
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
-    this.makeList = this.makeList.bind(this);
+    // this.showItem=this.showItem.bind(this)
+    // this.makeList = this.makeList.bind(this);
   }
 
   //   componentDidMount() {
@@ -81,23 +72,6 @@ class ChapterOne extends Component {
   //         .remove();
   //     });
   //   }
-  makeList(notes) {
-    // return notes.map(note => {
-    console.log(notes);
-    // return (
-    //   <Text> notes</Text>
-    // <ListItem
-    //   key={note.key}
-    //   title={note.content}
-    //   //   subtitle={`Author: ${note.author}`}
-    //   //   titleNumberOfLines={0}
-    //   rightIcon={{ name: "delete", style: { marginRight: 10 } }}
-    //   onPressRightIcon={() => this.deletenote(note.key)}
-    //   leftIcon={{ name: "lens", color: "#" + note.color }}
-    // />
-    // );
-    // });
-  }
 
   render() {
     const nav = this.props.navigation;
@@ -123,79 +97,28 @@ class ChapterOne extends Component {
                       }}
                     >
                       <TouchableOpacity
-                        onPress={() =>
+                        onPress={() => {
                           //   console.log("this is pressed", task.contents)
-                          {
-                            this.makeList(task.contents);
-                          }
-                        }
+                          //   return this.makeList(task.contents);
+                          //   <Bullets points={task.contents} />;
+                          // console.log(this.makeList(task.contents));
+                        }}
                       >
                         <Text
                           style={{
                             fontSize: 28,
-                            color: "rgba(96,100,109, 1)",
+                            // color: "rgba(96,100,109, 1)",
+                            color: "white",
+                            backgroundColor: "royalblue",
                             textAlign: "center",
-                            fontFamily: "firaBold"
+                            fontFamily: "playfairBold"
                           }}
                         >
                           {task.title}
                         </Text>
                       </TouchableOpacity>
 
-                      {/* <List> */}
-                      {/* {`${task.contents}`.map(item => {
-                        return (
-                          // <ListItem>
-                          <Text
-                            style={{
-                              fontSize: 20,
-                              color: "rgba(96,100,109, 1)",
-                              textAlign: "center"
-                              //   fontFamily: "permanent-marker"
-                            }}
-                          >
-                            {item}
-                          </Text>
-                          // </ListItem>
-                        );
-                      })} */}
-                      {/* </List> */}
-
-                      {/* <Text
-                        style={{
-                          fontSize: 20,
-                          color: "rgba(96,100,109, 1)",
-                          textAlign: "left",
-                          marginLeft: 30,
-                          fontFamily: "fira"
-                        }}
-                      >
-                        {task.contents}
-                      </Text> */}
-
-                      {/* </List> */}
-                      {/* </Card> */}
-                      {/* {`${task.contents}`
-                          ? this.makeList(task.contents)
-                          : null}
-                      </List> */}
-                      {/* /*{" "}
-                      {task.contents.map(item => {
-                        return (
-                          <ListItem>
-                            <Text
-                              style={{
-                                fontSize: 20,
-                                color: "rgba(96,100,109, 1)",
-                                textAlign: "center"
-                                //   fontFamily: "permanent-marker"
-                              }}
-                            >
-                              {item}
-                            </Text>
-                          </ListItem>
-                        );
-                      })} */}
+                      <Bullets points={task.contents} />
                     </Card>
                   );
                 })

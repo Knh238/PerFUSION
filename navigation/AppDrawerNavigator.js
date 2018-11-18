@@ -204,9 +204,9 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Profile")}
               >
-                <Text style={{ fontFamily: "poppins" }}>
-                  Profile: In Poppins Font
-                </Text>
+                <Body>
+                  <Text style={{ fontFamily: "poppins" }}>Profile:</Text>
+                </Body>
               </ListItem>
               <ListItem
                 style={{
@@ -215,13 +215,16 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Todo")}
               >
-                <Text style={{ fontFamily: "permanent-marker" }}>
-                  To-do: Permanent Marker
-                </Text>
-                <Badge primary>
-                  <Text>25</Text>
-                </Badge>
+                <Body>
+                  <Text style={{ fontFamily: "poppins" }}>To-do:</Text>
+                </Body>
+                <Right>
+                  <Badge primary>
+                    <Text>25</Text>
+                  </Badge>
+                </Right>
               </ListItem>
+
               <ListItem
                 style={{
                   marginLeft: 0,
@@ -229,9 +232,15 @@ class CustomDrawer extends Component {
                 }}
                 onPress={() => nav.navigate("Photos")}
               >
-                <Text style={{ fontFamily: "rubik" }}>
-                  Images: In Rubik Font
-                </Text>
+                <Body>
+                  <Text style={{ fontFamily: "poppins" }}>Review Schedule</Text>
+                  {/* <Text style={{ fontFamily: "poppins" }}>Days left:</Text> */}
+                </Body>
+                <Right>
+                  <Badge danger>
+                    <Text>14</Text>
+                  </Badge>
+                </Right>
               </ListItem>
               <ListItem
                 icon
@@ -245,9 +254,7 @@ class CustomDrawer extends Component {
                 }
               >
                 <Body>
-                  <Text style={{ fontFamily: "fira" }}>
-                    Chapter 1: In Fira Font
-                  </Text>
+                  <Text style={{ fontFamily: "poppins" }}>Chapter 1:</Text>
                 </Body>
                 <Right>
                   <Icon
@@ -265,14 +272,17 @@ class CustomDrawer extends Component {
                 <List style={{ marginLeft: "5%" }}>
                   <ListItem icon>
                     <Body>
-                      <Text style={{ fontFamily: "fira" }}>1.1</Text>
+                      <Text style={{ fontFamily: "poppins" }}>1.1</Text>
                     </Body>
                     <Right>
                       <Icon
                         //reverse
-                        name="caret-down"
+                        // name="caret-down"
+                        raised
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
+                        size="15"
                         onPress={() =>
                           nav.navigate("ChapterOne", {
                             chapter: this.state.chapter
@@ -291,7 +301,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "fira" }}>1.2</Text>
+                      <Text style={{ fontFamily: "poppins" }}>1.2</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -320,14 +330,12 @@ class CustomDrawer extends Component {
                   >
                     {" "}
                     <Body>
-                      <Text style={{ fontFamily: "firaBold" }}>
-                        1.3: Fira Bold Font
-                      </Text>
+                      <Text style={{ fontFamily: "poppins" }}>1.3</Text>
                     </Body>
                     <Right>
                       <Icon
-                        reverse
-                        name="angle-double-down"
+                        raised
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -347,20 +355,22 @@ class CustomDrawer extends Component {
                   >
                     {" "}
                     <Body>
-                      <Text style={{ fontFamily: "fira" }}>1.4</Text>
+                      <Text style={{ fontFamily: "poppins" }}>1.4</Text>
                     </Body>
                     <Right>
                       <Icon
-                        name="angle-double-down"
+                        raised
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
-                        size="20"
+                        size="15"
                         onPress={() => nav.navigate("Home")}
                         right
                       />
                     </Right>
                   </ListItem>
                   <ListItem
+                    icon
                     title="1.5"
                     onPress={() =>
                       nav.navigate("ChapterOne", {
@@ -368,7 +378,20 @@ class CustomDrawer extends Component {
                       })
                     }
                   >
-                    <Text style={{ fontFamily: "fira" }}>1.5</Text>
+                    <Body>
+                      <Text style={{ fontFamily: "poppins" }}>1.5</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        raised
+                        name="angle-double-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() => nav.navigate("Home")}
+                        right
+                      />
+                    </Right>
                   </ListItem>
                 </List>
               ) : null}
@@ -399,22 +422,145 @@ class CustomDrawer extends Component {
               </ListItem>
               {this.state.showTwo ? (
                 <List style={{ marginLeft: "5%" }}>
-                  <ListItem title="2.1">
-                    <Text style={{ fontFamily: "playfair" }}>2.1</Text>
+                  <ListItem
+                    icon
+                    title="2.1"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "playfair" }}>2.1</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="2.2">
-                    <Text style={{ fontFamily: "playfair" }}>2.2</Text>
+                  <ListItem
+                    icon
+                    title="2.2"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "playfair" }}>2.2</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="2.3">
-                    <Text style={{ fontFamily: "playfairBold" }}>
-                      2.3: In playfair bold font
-                    </Text>
+                  <ListItem
+                    icon
+                    title="2.3"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "playfair" }}>2.3</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="2.4">
-                    <Text style={{ fontFamily: "playfair" }}>2.4</Text>
+                  <ListItem
+                    icon
+                    title="2.4"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "playfair" }}>2.4</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="2.5">
-                    <Text style={{ fontFamily: "playfair" }}>2.5</Text>
+                  <ListItem
+                    icon
+                    title="2.5"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "playfair" }}>2.5</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
                 </List>
               ) : null}
@@ -445,20 +591,146 @@ class CustomDrawer extends Component {
               </ListItem>
               {this.state.showThree ? (
                 <List style={{ marginLeft: "5%" }}>
-                  <ListItem title="3.1">
-                    <Text style={{ fontFamily: "Roboto" }}>3.1</Text>
+                  <ListItem
+                    icon
+                    title="3.1"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "Roboto" }}>3.1</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="3.2">
-                    <Text style={{ fontFamily: "Roboto" }}>3.2</Text>
+                  <ListItem
+                    icon
+                    title="3.2"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "Roboto" }}>3.2</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="3.3">
-                    <Text style={{ fontFamily: "Roboto" }}>3.3</Text>
+                  <ListItem
+                    icon
+                    title="3.3"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "Roboto" }}>3.3</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="3.4">
-                    <Text style={{ fontFamily: "Roboto" }}>3.4</Text>
+                  <ListItem
+                    icon
+                    title="3.4"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "Roboto" }}>3.4</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
-                  <ListItem title="3.5">
-                    <Text style={{ fontFamily: "Roboto" }}>3.5</Text>
+
+                  <ListItem
+                    icon
+                    title="3.5"
+                    onPress={() =>
+                      nav.navigate("ChapterOne", {
+                        chapter: this.state.chapter
+                      })
+                    }
+                  >
+                    <Body>
+                      <Text style={{ fontFamily: "Roboto" }}>3.5</Text>
+                    </Body>
+                    <Right>
+                      <Icon
+                        //reverse
+                        raised
+                        name="chevron-right"
+                        type="font-awesome"
+                        color="royalblue"
+                        size="15"
+                        onPress={() =>
+                          nav.navigate("ChapterOne", {
+                            chapter: this.state.chapter
+                          })
+                        }
+                      />
+                    </Right>
                   </ListItem>
                 </List>
               ) : null}

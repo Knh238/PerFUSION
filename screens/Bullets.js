@@ -14,17 +14,38 @@ import {
 import { Button, CheckBox } from "react-native-elements";
 import { Card } from "react-native-material-ui";
 
-const Bullets = function(props) {
-  //   console.log("props in bullets", props);
-  const { notes } = props;
-  return notes.map(item => {
+class Bullets extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { points: this.props.points };
+  }
+
+  render() {
+    // console.log("props in bullets", props);
+    console.log("props on state in bullets", this.state.points);
+    const { points } = this.props;
     return (
-      <ListItem title={item}>
-        <Text>item</Text>
-      </ListItem>
+      //   <List>
+      this.state.points.map(item => (
+        // return (
+        <ListItem title={item}>
+          <Text
+            style={{
+              fontSize: 18,
+              //   color: "rgba(96,100,109, 1)",
+              textAlign: "left",
+              marginLeft: 20,
+              fontFamily: "playfairBold"
+            }}
+          >
+            {item}
+          </Text>
+        </ListItem>
+      ))
+      //   </List>
     );
-  });
-};
+  }
+}
 export default Bullets;
 // class ChapterOne extends Component {
 //     static navigationOptions = {

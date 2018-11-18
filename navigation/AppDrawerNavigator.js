@@ -25,7 +25,7 @@ import HomeScreen from "../screens/HomeScreen";
 import Todo from "../screens/ToDo";
 import firebase from "../firebase";
 import ChapterOne from "../screens/Chapter1";
-// import CreateProject from "../screens/CreateProject";
+import ScheduleHomeScreen from "../screens/Schedule";
 // import ProjectHome from "../screens/ProjectHome";
 // import Profile from "../screens/Profile";
 // import Photos from "../screens/Photos";
@@ -230,7 +230,7 @@ class CustomDrawer extends Component {
                   marginLeft: 0,
                   paddingLeft: 10
                 }}
-                onPress={() => nav.navigate("Photos")}
+                onPress={() => nav.navigate("Schedule")}
               >
                 <Body>
                   <Text style={{ fontFamily: "poppins" }}>Review Schedule</Text>

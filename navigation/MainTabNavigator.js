@@ -1,10 +1,10 @@
 import React from "react";
-import { Platform } from "react-native";
+import { Platform, TouchableHighlight } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator
 } from "react-navigation";
-import { Avatar, Divider, Icon } from "react-native-elements";
+import { Avatar, Divider, Icon, Button } from "react-native-elements";
 import TabBarIcon from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
 import LinksScreen from "../screens/LinksScreen";
@@ -24,8 +24,8 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
+          ? `ios-home${focused ? "" : "-outline"}`
+          : "md-home"
       }
     />
   )
@@ -37,15 +37,28 @@ const ProgressStack = createStackNavigator({
 ProgressStack.navigationOptions = {
   tabBarLabel: "Progress",
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
-      }
+    // <TabBarIcon
+    //   focused={focused}
+    //   name={
+    //     Platform.OS === "ios"
+    //       ? `assessment${focused ? "" : "-outline"}`
+    //       : "assessment"
+    //   }
+    // />
+
+    <Icon
+      // name="insert-chart"
+      // name="assessment"
+      name="pie-chart"
+      //   // focused={focused}
+      type="font-awesome"
+      // color="dodgerblue"
+      color="grey"
+      size="22"
+      underlayColor="dogerblue"
+      // Component={TouchableHighlight}
+      // onPress={() => (color = "dogerblue")}
     />
-    // <Icon reverse name="heartbeat" type="font-awesome" color="royalblue" />
   )
 };
 const CalendarStack = createStackNavigator({
@@ -59,8 +72,8 @@ CalendarStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === "ios"
-          ? `ios-link${focused ? "" : "-outline"}`
-          : "md-link"
+          ? `ios-calendar${focused ? "" : "-outline"}`
+          : "md-calendar"
       }
     />
   )
@@ -77,8 +90,8 @@ QuizStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === "ios"
-          ? `ios-options${focused ? "" : "-outline"}`
-          : "md-options"
+          ? `ios-list-box${focused ? "" : "-outline"}`
+          : "md-list-box"
       }
     />
   )

@@ -7,8 +7,8 @@ import MainTabNavigator from "./MainTabNavigator";
 // import Login from "../screens/Login";
 import Todo from "../screens/ToDo";
 import ChapterOne from "../screens/Chapter1";
-// import CreateProject from "../screens/CreateProject";
-// import CreateEvent from "../screens/CreateEvent";
+import ScheduleHomeScreen from "../screens/Schedule";
+import WeekScreen from "../screens/Week";
 // import CreateTodo from "../screens/CreateTodo";
 // import ProjectHome from "../screens/ProjectHome";
 // import Profile from "../screens/Profile";
@@ -18,7 +18,7 @@ import ChapterOne from "../screens/Chapter1";
 
 const AppStackNavigator = createStackNavigator(
   {
-    AppTabNavigator: {
+    MainTabNavigator: {
       screen: MainTabNavigator,
       navigationOptions: ({ navigation }) => ({
         headerTitle: (
@@ -55,8 +55,19 @@ const AppStackNavigator = createStackNavigator(
       screen: ChapterOne,
       // headerRight: null,
       appBarVisible: true
+    },
+    Schedule: {
+      screen: ScheduleHomeScreen,
+      // headerRight: null,
+      appBarVisible: true
+    },
+    Week: {
+      screen: WeekScreen,
+      // headerRight: null,
+      appBarVisible: true
     }
   },
+
   {
     cardStyle: { backgroundColor: "#FFFFFF" }
   }

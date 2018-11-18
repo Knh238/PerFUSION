@@ -49,8 +49,30 @@ export default class Todo extends React.Component {
           <ListItem
             rightIcon={{ name: "lens", color: "#" + task.color }}
             key={task.key}
-            title={task.content}
-            subtitle={`Assigned: ${task.assigned}`}
+            title={"take some quizzes"}
+            // title={task.content}
+            subtitle={`Due: like YESTERDAY!`}
+            leftIcon={
+              <CheckBox
+                containerStyle={{
+                  marginLeft: 0,
+                  marginRight: 0,
+                  borderWidth: 0,
+                  backgroundColor: "white"
+                }}
+                checkedColor={"#" + task.color}
+                checkedIcon="dot-circle-o"
+                uncheckedIcon="circle-o"
+                checked={this.state[task.key]}
+                onPress={() => this.handleCheck(task.key)}
+              />
+            }
+          />
+          <ListItem
+            rightIcon={{ name: "lens", color: "#" + task.color }}
+            key={task.key}
+            title={"review all the things!"}
+            subtitle={`Due: like YESTERDAY!`}
             leftIcon={
               <CheckBox
                 containerStyle={{

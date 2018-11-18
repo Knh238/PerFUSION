@@ -11,7 +11,7 @@ import ScheduleHomeScreen from "../screens/Schedule";
 import WeekScreen from "../screens/Week";
 // import CreateTodo from "../screens/CreateTodo";
 // import ProjectHome from "../screens/ProjectHome";
-// import Profile from "../screens/Profile";
+import Profile from "../screens/Profile";
 // import Photos from "../screens/Photos";
 // import CreatePhoto from "../screens/CreatePhoto";
 // import HeartIcon from 'material-ui'
@@ -63,6 +63,11 @@ const AppStackNavigator = createStackNavigator(
     },
     Week: {
       screen: WeekScreen,
+      // headerRight: null,
+      appBarVisible: true
+    },
+    Profile: {
+      screen: Profile,
       // headerRight: null,
       appBarVisible: true
     }

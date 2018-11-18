@@ -205,7 +205,9 @@ class CustomDrawer extends Component {
                 onPress={() => nav.navigate("Profile")}
               >
                 <Body>
-                  <Text style={{ fontFamily: "poppins" }}>Profile:</Text>
+                  <Text style={{ fontFamily: "poppins" }}>
+                    Profile(Font options)
+                  </Text>
                 </Body>
               </ListItem>
               <ListItem
@@ -279,7 +281,7 @@ class CustomDrawer extends Component {
                         //reverse
                         // name="caret-down"
                         raised
-                        name="chevron-right"
+                        name="angle-double-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -307,7 +309,7 @@ class CustomDrawer extends Component {
                       <Icon
                         //reverse
                         raised
-                        name="chevron-right"
+                        name="angle-double-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -335,7 +337,7 @@ class CustomDrawer extends Component {
                     <Right>
                       <Icon
                         raised
-                        name="chevron-right"
+                        name="angle-double-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -360,7 +362,7 @@ class CustomDrawer extends Component {
                     <Right>
                       <Icon
                         raised
-                        name="chevron-right"
+                        name="angle-double-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -404,9 +406,7 @@ class CustomDrawer extends Component {
                 }}
               >
                 <Body>
-                  <Text style={{ fontFamily: "playfair" }}>
-                    Chapter 2: In Playfair font
-                  </Text>
+                  <Text style={{ fontFamily: "poppins" }}>Chapter 2:</Text>
                 </Body>
                 <Right>
                   <Icon
@@ -432,7 +432,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "playfair" }}>2.1</Text>
+                      <Text style={{ fontFamily: "poppins" }}>2.1</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -460,7 +460,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "playfair" }}>2.2</Text>
+                      <Text style={{ fontFamily: "poppins" }}>2.2</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -488,7 +488,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "playfair" }}>2.3</Text>
+                      <Text style={{ fontFamily: "poppins" }}>2.3</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -516,7 +516,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "playfair" }}>2.4</Text>
+                      <Text style={{ fontFamily: "poppins" }}>2.4</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -544,7 +544,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "playfair" }}>2.5</Text>
+                      <Text style={{ fontFamily: "poppins" }}>2.5</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -573,9 +573,7 @@ class CustomDrawer extends Component {
                 }}
               >
                 <Body>
-                  <Text style={{ fontFamily: "Roboto" }}>
-                    Chapter 3: In Roboto Font
-                  </Text>
+                  <Text style={{ fontFamily: "poppins" }}>Chapter 3:</Text>
                 </Body>
                 <Right>
                   <Icon
@@ -601,7 +599,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "Roboto" }}>3.1</Text>
+                      <Text style={{ fontFamily: "poppins" }}>3.1</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -629,7 +627,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "Roboto" }}>3.2</Text>
+                      <Text style={{ fontFamily: "poppins" }}>3.2</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -657,7 +655,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "Roboto" }}>3.3</Text>
+                      <Text style={{ fontFamily: "poppins" }}>3.3</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -685,7 +683,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "Roboto" }}>3.4</Text>
+                      <Text style={{ fontFamily: "poppins" }}>3.4</Text>
                     </Body>
                     <Right>
                       <Icon
@@ -714,7 +712,7 @@ class CustomDrawer extends Component {
                     }
                   >
                     <Body>
-                      <Text style={{ fontFamily: "Roboto" }}>3.5</Text>
+                      <Text style={{ fontFamily: "poppins" }}>3.5</Text>
                     </Body>
                     <Right>
                       <Icon

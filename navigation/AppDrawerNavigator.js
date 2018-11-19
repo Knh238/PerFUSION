@@ -595,7 +595,7 @@ class CustomDrawer extends Component {
                     icon
                     title="3.1"
                     onPress={() =>
-                      nav.navigate("ChapterOne", {
+                      nav.navigate("ChapterThree", {
                         chapter: this.state.chapter
                       })
                     }

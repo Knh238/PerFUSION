@@ -40,7 +40,7 @@ export default class QuizHomeScreen extends React.Component {
     this.setState({ selectedTopicIndex });
   }
   render() {
-    const buttons = ["Hello", "World", "Buttons"];
+    const buttons = ["By", "Topic", "Random"];
     const buttonsCh = ["Chapter 1", "Chapter 2", "Chapter3"];
     const { selectedTopicIndex } = this.state;
     const { selectedChapterIndex } = this.state;
@@ -88,7 +88,7 @@ export default class QuizHomeScreen extends React.Component {
                 fontSize: 28,
                 color: "rgba(96,100,109, 1)",
                 textAlign: "center",
-                fontFamily: "patrick"
+                fontFamily: "fira"
               }}
             >
               This will be your home page for quizzes{"\n"}
@@ -98,7 +98,7 @@ export default class QuizHomeScreen extends React.Component {
                 fontSize: 20,
                 color: "royalblue",
                 textAlign: "center",
-                fontFamily: "playfair"
+                fontFamily: "fira"
               }}
             >
               It will have a series of buttons
@@ -109,7 +109,7 @@ export default class QuizHomeScreen extends React.Component {
                 // color: "navy",
                 // textAlign: "left",
                 // marginLeft: 40,
-                fontFamily: "playfair"
+                fontFamily: "fira"
               }}
             >
               {" "}

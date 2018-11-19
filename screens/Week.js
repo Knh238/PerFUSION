@@ -26,6 +26,17 @@ class WeekScreen extends Component {
     // this.handleCheck = this.handleCheck.bind(this);
     // this.showItem=this.showItem.bind(this)
     // this.makeList = this.makeList.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+  handleCheck(key) {
+    // firebase
+    //   .database()
+    //   .ref('tasks/' + key)
+    //   .update({
+    //     completed: !this.state[key],
+    //   })
+    //   .then(
+    this.setState({ [key]: !this.state[key] });
   }
 
   render() {
@@ -37,6 +48,12 @@ class WeekScreen extends Component {
     // );
     // const { chapter } = nav.state.params;
     // console.log("this is subsections", chapter);
+    let task = {
+      key: "hey",
+      content: "Task",
+      assigned: "person",
+      color: "5FA6B9"
+    };
     return (
       <SafeAreaView style={{ marginTop: 10, backgroundColor: "#5FA6B9" }}>
         <ScrollView>
@@ -95,11 +112,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -117,11 +134,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -155,11 +172,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -177,11 +194,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -215,11 +232,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -237,11 +254,11 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
-                      checkedColor={"aqua"}
-                      checkedIcon="dot-circle-o"
-                      uncheckedIcon="circle-o"
-                      //   checked={this.state[task.key]}
-                      //   onPress={() => this.handleCheck(task.key)}
+                      checkedColor={"#1E88E5"}
+                      // checkedIcon="dot-circle-o"
+                      // uncheckedIcon="circle-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />

@@ -35,7 +35,7 @@ class Bullets3 extends Component {
               //   color: "rgba(96,100,109, 1)",
               textAlign: "left",
               marginLeft: 20,
-              fontFamily: "playfairBold"
+              fontFamily: "fira"
             }}
           >
             {item}

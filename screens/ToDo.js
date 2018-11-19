@@ -47,7 +47,8 @@ export default class Todo extends React.Component {
       <View>
         <List>
           <ListItem
-            rightIcon={{ name: "lens", color: "#" + task.color }}
+            //rightIcon={{ name: "lens", color: "#" + task.color }}
+            rightIcon={{ name: "lens", color: "#BBDEFB" }}
             key={task.key}
             title={"take some quizzes"}
             // title={task.content}
@@ -60,9 +61,9 @@ export default class Todo extends React.Component {
                   borderWidth: 0,
                   backgroundColor: "white"
                 }}
-                checkedColor={"#" + task.color}
-                checkedIcon="dot-circle-o"
-                uncheckedIcon="circle-o"
+                checkedColor={"#1E88E5"}
+                // checkedIcon="dot-circle-o"
+                // uncheckedIcon="circle-o"
                 checked={this.state[task.key]}
                 onPress={() => this.handleCheck(task.key)}
               />
@@ -81,9 +82,9 @@ export default class Todo extends React.Component {
                   borderWidth: 0,
                   backgroundColor: "white"
                 }}
-                checkedColor={"#" + task.color}
-                checkedIcon="dot-circle-o"
-                uncheckedIcon="circle-o"
+                checkedColor={"#1E88E5"}
+                // checkedIcon="dot-circle-o"
+                // uncheckedIcon="circle-o"
                 checked={this.state[task.key]}
                 onPress={() => this.handleCheck(task.key)}
               />

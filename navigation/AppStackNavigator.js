@@ -14,6 +14,7 @@ import WeekScreen from "../screens/Week";
 // import CreateTodo from "../screens/CreateTodo";
 // import ProjectHome from "../screens/ProjectHome";
 import Profile from "../screens/Profile";
+import ModalExample from "../screens/NewNote";
 // import Photos from "../screens/Photos";
 // import CreatePhoto from "../screens/CreatePhoto";
 // import HeartIcon from 'material-ui'
@@ -41,7 +42,7 @@ const AppStackNavigator = createStackNavigator(
           </TouchableOpacity>
         ),
         headerRight: (
-          <TouchableOpacity onPress={() => navigation.navigate("CreateEvent")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Note")}>
             <View style={{ paddingHorizontal: 10 }}>
               <Icon name="add" />
             </View>
@@ -65,11 +66,11 @@ const AppStackNavigator = createStackNavigator(
       appBarVisible: true
       // tabBarVisible: true
     },
-    ChapterTwo: {
-      screen: ChapterTwo,
+    ChapterThree: {
+      screen: ChapterThree,
       // headerRight: null,
       appBarVisible: true
-      // tabBarVisible: true
+      //  tabBarVisible: false
     },
     Schedule: {
       screen: ScheduleHomeScreen,
@@ -84,6 +85,11 @@ const AppStackNavigator = createStackNavigator(
     },
     Profile: {
       screen: Profile,
+      // headerRight: null,
+      appBarVisible: true
+    },
+    Note: {
+      screen: ModalExample,
       // headerRight: null,
       appBarVisible: true
     }

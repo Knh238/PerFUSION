@@ -6,9 +6,15 @@ import {
   View,
   TouchableOpacity
 } from "react-native";
-import { Button, CheckBox } from "react-native-elements";
-import { Card, List, ListItem, Divider } from "react-native-material-ui";
-
+import { CheckBox } from "react-native-elements";
+import {
+  Card,
+  List,
+  ListItem,
+  Divider,
+  IconToggle
+} from "react-native-material-ui";
+import { Button, Icon } from "native-base";
 import Bullets from "./Bullets";
 var firebase = require("firebase");
 import AppTabNavigator from "../navigation/AppTabNavigator";
@@ -20,14 +26,28 @@ class ChapterOne extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { expanded: false };
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
     // this.showItem=this.showItem.bind(this)
     // this.makeList = this.makeList.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+  handleCheck(key) {
+    // firebase
+    //   .database()
+    //   .ref('tasks/' + key)
+    //   .update({
+    //     completed: !this.state[key],
+    //   })
+    //   .then(
+    this.setState({ [key]: !this.state[key] });
   }
 
+  // handleExpandClick = () => {
+  //   this.setState(state => ({ expanded: !state.expanded }));
+  // };
   //   componentDidMount() {
   //     this._mounted = true;
   //     var self = this;
@@ -80,6 +100,12 @@ class ChapterOne extends Component {
     //   "props in chapter one render",
     //   this.props.navigation.state.params.chapter
     // );
+    let task = {
+      key: "hey",
+      content: "Task",
+      assigned: "person",
+      color: "5FA6B9"
+    };
     const { chapter } = nav.state.params;
     // console.log("this is subsections", chapter);
     return (
@@ -103,31 +129,91 @@ class ChapterOne extends Component {
                   <Card
                     //   containerStyle={{ backgroundColor: "grey" }}
                     style={{
-                      display: "flex",
-                      alignContent: "space-between"
+                      display: "flex"
+                      // alignContent: "space-between"
                     }}
                   >
-                    <TouchableOpacity
-                      onPress={() => {
-                        //   console.log("this is pressed", task.contents)
-                        //   return this.makeList(task.contents);
-                        //   <Bullets points={task.contents} />;
-                        // console.log(this.makeList(task.contents));
+                    {/* <CheckBox
+                        // containerStyle={{
+                        //   marginLeft: 0,
+                        //   marginRight: 0,
+                        //   borderWidth: 0
+
+                        //   // backgroundColor: "white"
+                        // }}
+                        center
+                        iconRight
+                        checkedColor={"aqua"}
+                        checkedIcon="bookmark"
+                        uncheckedIcon="bookmark-o"
+                        checked={this.state[task.key]}
+                        onPress={() => this.handleCheck(task.key)}
+                      />
+                      > */}
+                    {/* <IconButton aria-label="Add to favorites">
+                        <FavoriteIcon />
+                      </IconButton> */}
+                    {/* <IconToggle name="bookmark" underlayColor="pink" /> */}
+
+                    {/* <CheckBox
+                      containerStyle={{
+                        marginLeft: 0,
+                        marginRight: 0,
+                        borderWidth: 0,
+                        backgroundColor: "royalblue",
+                        float: "right"
+                      }}
+                      right
+                      checkedColor={"aqua"}
+                      checkedIcon="bookmark"
+                      uncheckedIcon="bookmark-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
+                    /> */}
+                    <CheckBox
+                      containerStyle={{
+                        marginLeft: 0,
+                        marginRight: 0,
+                        marginTop: 0,
+                        marginBottom: 0,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        backgroundColor: "royalblue"
+                      }}
+                      right
+                      checkedColor={"aqua"}
+                      checkedIcon="bookmark"
+                      uncheckedIcon="bookmark-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
+                    />
+                    <Text
+                      style={{
+                        fontSize: 28,
+                        // color: "rgba(96,100,109, 1)",
+                        color: "white",
+                        backgroundColor: "royalblue",
+                        textAlign: "center",
+                        fontFamily: "playfairBold"
                       }}
                     >
-                      <Text
-                        style={{
-                          fontSize: 28,
-                          // color: "rgba(96,100,109, 1)",
-                          color: "white",
+                      {/* <CheckBox
+                        containerStyle={{
+                          marginLeft: 0,
+                          marginRight: 0,
+                          borderWidth: 0,
                           backgroundColor: "royalblue",
-                          textAlign: "center",
-                          fontFamily: "playfairBold"
+                          float: "right"
                         }}
-                      >
-                        {task.title}
-                      </Text>
-                    </TouchableOpacity>
+                        center
+                        checkedColor={"aqua"}
+                        checkedIcon="bookmark"
+                        uncheckedIcon="bookmark-o"
+                        checked={this.state[task.key]}
+                        onPress={() => this.handleCheck(task.key)}
+                      /> */}
+                      {task.title}
+                    </Text>
 
                     <Bullets points={task.contents} />
                   </Card>

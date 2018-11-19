@@ -51,6 +51,17 @@ class ChapterTwo extends Component {
     // this.showItem=this.showItem.bind(this)
     // this.makeList = this.makeList.bind(this);
     this.showContents = this.showContents.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+  handleCheck(key) {
+    // firebase
+    //   .database()
+    //   .ref('tasks/' + key)
+    //   .update({
+    //     completed: !this.state[key],
+    //   })
+    //   .then(
+    this.setState({ [key]: !this.state[key] });
   }
 
   //   componentDidMount() {
@@ -103,6 +114,12 @@ class ChapterTwo extends Component {
 
   render() {
     const nav = this.props.navigation;
+    let task = {
+      key: "hey",
+      content: "Task",
+      assigned: "person",
+      color: "5FA6B9"
+    };
     //console.log(this.state);
     // console.log(
     //   "props in chapter one render",
@@ -117,8 +134,8 @@ class ChapterTwo extends Component {
           marginTop: 10,
           backgroundColor: "#5FA6B9",
           float: "center",
-          flexGrow: 1,
-          marginBottom: 10
+          flexGrow: 1
+          // marginBottom: 10
         }}
       >
         {/* <SafeAreaView> */}
@@ -146,6 +163,23 @@ class ChapterTwo extends Component {
                       fontFamily: "space-mono"
                     }}
                   >
+                    <CheckBox
+                      containerStyle={{
+                        marginLeft: 0,
+                        marginRight: 0,
+                        marginTop: 0,
+                        marginBottom: 0,
+                        borderWidth: 0,
+                        borderRadius: 0,
+                        backgroundColor: "white"
+                      }}
+                      right
+                      checkedColor={"aqua"}
+                      checkedIcon="bookmark"
+                      uncheckedIcon="bookmark-o"
+                      checked={this.state[task.key]}
+                      onPress={() => this.handleCheck(task.key)}
+                    />
                     <TouchableOpacity
                       onPress={
                         () => this.showContents()

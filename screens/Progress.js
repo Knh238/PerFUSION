@@ -1,6 +1,7 @@
 //lottie
 //animated pie chart
 import React from "react";
+import LottieView from "lottie-react-native";
 import {
   Image,
   Platform,
@@ -41,21 +42,25 @@ export default class ProgressScreen extends React.Component {
             marginBottom: 10
           }}
         >
-          {/* <Image
-            source={
-              __DEV__
-                ? require("../assets/images/heart.png")
-                : require("../assets/images/heart.png")
-            }
-            style={{
-              width: 100,
-              height: 80,
-              resizeMode: "contain",
-              marginTop: 3,
-              marginLeft: -10
-            }}
-          /> */}
+          {/* <Icon
+            raised
+            name="pie-chart"
+            type="font-awesome"
+            color="royalblue"
+            size="35"
 
+            //   onPress={() =>
+            //     nav.navigate("ChapterOne", {
+            //       chapter: this.state.chapter
+            //     })
+            //   }
+          /> */}
+          <LottieView
+            //source={require("../assets/images/dna_like_loader.json")}
+            source={require("../assets/images/animated_laptop_.json")}
+            autoPlay
+            loop
+          />
           <Text
             style={{
               fontSize: 25,
@@ -65,33 +70,25 @@ export default class ProgressScreen extends React.Component {
             }}
           >
             A Pie-chart and other imagery will go here{"\n"}
+            {"\n"}
+            {"\n"}
+            {"\n"}
           </Text>
-          <Icon
-            raised
-            name="pie-chart"
-            type="font-awesome"
-            color="royalblue"
-            size="65"
 
-            //   onPress={() =>
-            //     nav.navigate("ChapterOne", {
-            //       chapter: this.state.chapter
-            //     })
-            //   }
-          />
-          <Icon
+          {/* <Icon
             raised
             reverse
+            // style={{ marginTop: 30 }}
             name="line-chart"
             type="font-awesome"
             color="royalblue"
-            size="65"
+            size="35"
             //   onPress={() =>
             //     nav.navigate("ChapterOne", {
             //       chapter: this.state.chapter
             //     })
             //   }
-          />
+          /> */}
           <Text
             style={{
               fontSize: 18,
@@ -100,12 +97,41 @@ export default class ProgressScreen extends React.Component {
               fontFamily: "permanent-marker"
             }}
           >
+            {"\n"}
+            {"\n"}
             {"\n"}...Once I figure out how to: {"\n"}1. measure that{"\n"} 2.
             make the animation{"\n"}
           </Text>
+          {/* <Icon
+            raised
+            name="pie-chart"
+            type="font-awesome"
+            color="royalblue"
+            size="25"
+
+            //   onPress={() =>
+            //     nav.navigate("ChapterOne", {
+            //       chapter: this.state.chapter
+            //     })
+            //   }
+          /> */}
         </View>
       </ScrollView>
       /* </View> */
     );
   }
 }
+// import React from "react";
+// import LottieView from "lottie-react-native";
+
+// export default class ProgressScreen extends React.Component {
+//   render() {
+//     return (
+//       <LottieView
+//         source={require("../assets/images/dna_like_loader.json")}
+//         autoPlay
+//         loop
+//       />
+//     );
+//   }
+// }

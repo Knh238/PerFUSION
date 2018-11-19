@@ -16,6 +16,7 @@ import {
   Divider,
   Text
 } from "react-native-elements";
+import { LinearGradient } from "expo";
 // import { Card, List, ListItem, Divider } from "react-native-material-ui";
 // import {
 //   Container,
@@ -39,7 +40,7 @@ import AppTabNavigator from "../navigation/AppTabNavigator";
 
 class ChapterThree extends Component {
   static navigationOptions = {
-    // header: null,
+    //header: null
     // tabBarVisible: true
   };
   constructor(props) {
@@ -51,6 +52,17 @@ class ChapterThree extends Component {
     // this.showItem=this.showItem.bind(this)
     // this.makeList = this.makeList.bind(this);
     this.showContents = this.showContents.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+  }
+  handleCheck(key) {
+    // firebase
+    //   .database()
+    //   .ref('tasks/' + key)
+    //   .update({
+    //     completed: !this.state[key],
+    //   })
+    //   .then(
+    this.setState({ [key]: !this.state[key] });
   }
 
   //   componentDidMount() {
@@ -103,6 +115,12 @@ class ChapterThree extends Component {
 
   render() {
     const nav = this.props.navigation;
+    let task = {
+      key: "hey",
+      content: "Task",
+      assigned: "person",
+      color: "5FA6B9"
+    };
     //console.log(this.state);
     // console.log(
     //   "props in chapter one render",
@@ -111,69 +129,99 @@ class ChapterThree extends Component {
     const { chapter } = nav.state.params;
     // console.log("this is subsections", chapter);
     return (
+      // <SafeAreaView>
       <View
         style={{
           display: "flex",
+
           marginTop: 10,
-          backgroundColor: "#5FA6B9",
-          float: "center",
+          //backgroundColor: "#5FA6B9",
+          // float: "center",
+          // alignItems: "stretch"
           flexGrow: 1,
-          marginBottom: 10
+          paddingBottom: 10
+
+          // backgroundImage: "linear-gradient(to bottom right, red, yellow)"
         }}
       >
         <ScrollView>
-          <Text
-            style={{
-              fontSize: 15,
-              color: "white",
-              marginLeft: 5,
-              marginRight: 5,
-              textAlign: "center",
-              fontFamily: "space-mono"
-            }}
+          <LinearGradient
+            colors={["#90CAF9", "#2196F3", "#1976D2"]}
+            // style={{ padding: 15, alignItems: "center", borderRadius: 5 }}
           >
-            react-native-elements && font: space mono
-          </Text>
-          {chapter
-            ? chapter.subsections[0].sections.map(task => {
-                return (
-                  <Card
-                    //   containerStyle={{ backgroundColor: "grey" }}
-                    style={{
-                      display: "flex",
-                      alignContent: "space-between",
-                      fontFamily: "space-mono"
-                    }}
-                  >
-                    <TouchableOpacity
-                      onPress={
-                        () => this.showContents()
-                        //   <Bullets2 points={task.contents} />
-                        //   console.log("this is pressed", task.contents)
-                        //   return this.makeList(task.contents);
-                        //   <Bullets points={task.contents} />;
-                        // console.log(this.makeList(task.contents));
-                      }
+            <Text
+              style={{
+                fontSize: 15,
+                // color: "white",
+                marginLeft: 5,
+                marginRight: 5,
+                marginTop: 5,
+                textAlign: "center",
+                fontFamily: "firaBold"
+              }}
+            >
+              fira bold and gradient background
+            </Text>
+
+            {chapter
+              ? chapter.subsections[0].sections.map(task => {
+                  return (
+                    <Card
+                      //   containerStyle={{ backgroundColor: "grey" }}
+                      style={{
+                        display: "flex",
+                        // alignContent: "space-around",
+                        fontFamily: "firaBold",
+                        marginBottom: 10
+                      }}
                     >
-                      <Text
-                        style={{
-                          fontSize: 28,
-                          color: "rgba(96,100,109, 1)",
-                          textAlign: "center",
-                          fontFamily: "space-mono"
+                      <CheckBox
+                        containerStyle={{
+                          marginLeft: 0,
+                          marginRight: 0,
+                          marginTop: 0,
+                          marginBottom: 0,
+                          borderWidth: 0,
+                          borderRadius: 0,
+                          backgroundColor: "white"
                         }}
+                        right
+                        checkedColor={"orange"}
+                        checkedIcon="bookmark"
+                        uncheckedIcon="bookmark-o"
+                        checked={this.state[task.key]}
+                        onPress={() => this.handleCheck(task.key)}
+                      />
+                      <TouchableOpacity
+                        onPress={
+                          () => this.showContents()
+                          //   <Bullets2 points={task.contents} />
+                          //   console.log("this is pressed", task.contents)
+                          //   return this.makeList(task.contents);
+                          //   <Bullets points={task.contents} />;
+                          // console.log(this.makeList(task.contents));
+                        }
                       >
-                        {task.title}
-                      </Text>
-                    </TouchableOpacity>
-                    <Divider />
-                    {this.state.show ? (
-                      <Bullets3 points={task.contents} />
-                    ) : null}
-                  </Card>
-                );
-              })
-            : null}
+                        <Text
+                          style={{
+                            fontSize: 28,
+                            color: "rgba(96,100,109, 1)",
+                            textAlign: "center",
+                            fontFamily: "fira"
+                          }}
+                        >
+                          {task.title}
+                        </Text>
+                      </TouchableOpacity>
+                      <Divider />
+                      {this.state.show ? (
+                        <Bullets3 points={task.contents} />
+                      ) : null}
+                    </Card>
+                  );
+                })
+              : null}
+          </LinearGradient>
         </ScrollView>
       </View>
     );

@@ -9,6 +9,7 @@ import {
   View
 } from "react-native";
 import { Button } from "react-native-elements";
+import LottieView from "lottie-react-native";
 // import Icon from "react-native-vector-icons/FontAwesome";
 // import { Icon } from "expo";
 import { Icon } from "react-native-material-ui";
@@ -35,7 +36,7 @@ export default class HomeScreen extends React.Component {
             backgroundColor: "#fff"
           }}
           contentContainerStyle={{
-            paddingTop: 30
+            paddingTop: 20
           }}
         >
           <View
@@ -63,24 +64,37 @@ export default class HomeScreen extends React.Component {
           <View>
             <Text
               style={{
-                fontSize: 28,
+                fontSize: 30,
                 color: "rgba(96,100,109, 1)",
                 textAlign: "center",
-                fontFamily: "permanent-marker"
+                fontFamily: "playfairBold"
               }}
             >
               A Comprehensive Cardiovascular Perfusion Study Guide
             </Text>
-
+            <LottieView
+              source={require("../assets/images/heart_rate.json")}
+              //source={require("../assets/images/animated_laptop_.json")}
+              autoPlay
+              loop
+            />
             <Text
               style={{
-                fontSize: 20,
+                marginTop: 30,
+                fontSize: 18,
                 color: "royalblue",
                 textAlign: "center",
-                fontFamily: "permanent-marker"
+                fontFamily: "playfairBold"
               }}
             >
+              {"\n"}
+              {"\n"}
+              {"\n"}
+              {"\n"}
+              {"\n"}
+              {"\n"}
               Ready to Study?
+              {"\n"}
             </Text>
             <Button
               // icon={<Icon name="arrow-right" size={15} color="white" />}
@@ -88,12 +102,16 @@ export default class HomeScreen extends React.Component {
                 backgroundColor: "rgb(66, 194, 244)",
                 borderWidth: 0,
                 borderRadius: 30,
-                marginLeft: 35,
-                marginRight: 35,
-                marginTop: 10
+                // marginLeft: 35,
+                // marginRight: 35,
+                alignSelf: "center",
+                marginTop: 10,
+                width: "60%"
               }}
+              center
               // Icon="arrowright"
-              title="Let's Do This!"
+              title="How to use this app"
+              textStyle={{ fontFamily: "playfairBold" }}
               // rightIcon="arrow"
             />
             {/* <Icon name="arrowForward" /> */}
@@ -110,10 +128,12 @@ export default class HomeScreen extends React.Component {
                 style={{
                   fontSize: 18,
                   color: "#2e78b7",
-                  textAlign: "center"
+                  textAlign: "center",
+                  fontFamily: "playfairBold"
                 }}
               >
-                whatever is here you can touch/click
+                {"\n"}
+                Buzzfeed link
               </Text>
             </TouchableOpacity>
           </View>
@@ -183,9 +203,7 @@ export default class HomeScreen extends React.Component {
   }
 
   _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/development-mode"
-    );
+    WebBrowser.openBrowserAsync("https://www.buzzfeed.com");
   };
 }
 

@@ -52,9 +52,9 @@ const AppStackNavigator = createStackNavigator(
       })
     },
     Todo: {
-      screen: Todo,
-      headerRight: null,
-      tabBarVisible: true
+      screen: Todo
+      // headerRight: null,
+      // tabBarVisible: true
     },
     ChapterOne: {
       screen: ChapterOne,

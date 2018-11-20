@@ -22,7 +22,7 @@ class Bullets3 extends Component {
 
   render() {
     // console.log("props in bullets", props);
-    console.log("props on state in bullets", this.state.points);
+    //console.log("props on state in bullets3", this.state.points);
     const { points } = this.props;
     return (
       //   <List>

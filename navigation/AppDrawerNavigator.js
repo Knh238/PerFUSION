@@ -207,10 +207,49 @@ class CustomDrawer extends Component {
                 onPress={() => nav.navigate("Links")}
               >
                 <Body>
-                  <Text style={{ fontFamily: "poppins" }}>
-                    Profile(Font options)
-                  </Text>
+                  <Text style={{ fontFamily: "poppins" }}>Profile</Text>
                 </Body>
+                <Right>
+                  <Icon
+                    //reverse
+                    // raised
+                    // name="collections-bookmark"
+                    // type="MaterialIcons"
+                    name="user-circle"
+                    type="font-awesome"
+                    color="royalblue"
+                    size="28"
+                    onPress={() => this.clickOne()}
+                  />
+                </Right>
+              </ListItem>
+              <ListItem
+                style={{
+                  marginLeft: 0,
+                  paddingLeft: 10
+                }}
+                onPress={() => nav.navigate("Schedule")}
+              >
+                <Body>
+                  <Text style={{ fontFamily: "poppins" }}>My Bookmarks</Text>
+                  {/* <Text style={{ fontFamily: "poppins" }}>Days left:</Text> */}
+                </Body>
+                <Right>
+                  <Icon
+                    //reverse
+                    // raised
+                    // name="collections-bookmark"
+                    // type="MaterialIcons"
+                    name="book-bookmark"
+                    type="foundation"
+                    color="royalblue"
+                    size="35"
+                    onPress={() => this.clickOne()}
+                  />
+                  {/* <Badge secondary>
+                    <Text style={{ fontFamily: "poppins" }}>6</Text>
+                  </Badge> */}
+                </Right>
               </ListItem>
               <ListItem
                 style={{
@@ -224,7 +263,7 @@ class CustomDrawer extends Component {
                 </Body>
                 <Right>
                   <Badge primary>
-                    <Text>25</Text>
+                    <Text style={{ fontFamily: "poppins" }}>12</Text>
                   </Badge>
                 </Right>
               </ListItem>
@@ -241,8 +280,8 @@ class CustomDrawer extends Component {
                   {/* <Text style={{ fontFamily: "poppins" }}>Days left:</Text> */}
                 </Body>
                 <Right>
-                  <Badge danger>
-                    <Text>14</Text>
+                  <Badge warning>
+                    <Text style={{ fontFamily: "poppins" }}>0%</Text>
                   </Badge>
                 </Right>
               </ListItem>

@@ -105,8 +105,8 @@ export default class HomeScreen extends React.Component {
                 // marginLeft: 35,
                 // marginRight: 35,
                 alignSelf: "center",
-                marginTop: 10,
-                width: "60%"
+                // marginTop: 10,
+                width: "55%"
               }}
               center
               // Icon="arrowright"
@@ -126,16 +126,27 @@ export default class HomeScreen extends React.Component {
             >
               <Text
                 style={{
-                  fontSize: 18,
-                  color: "#2e78b7",
+                  fontSize: 15,
+                  color: "#1565C0",
                   textAlign: "center",
-                  fontFamily: "playfairBold"
+                  // fontFamily: "playfairBold"
+
+                  fontFamily: "space-mono"
                 }}
               >
-                {"\n"}
-                Buzzfeed link
+                American Board of Cardiovascular Perfusion
               </Text>
             </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 15,
+                color: "#D500F9",
+                textAlign: "center",
+                fontFamily: "patrick"
+              }}
+            >
+              (by the way their website sucks)
+            </Text>
           </View>
         </ScrollView>
 
@@ -203,7 +214,7 @@ export default class HomeScreen extends React.Component {
   }
 
   _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync("https://www.buzzfeed.com");
+    WebBrowser.openBrowserAsync("http://www.abcp.org/certification_.htm");
   };
 }
 

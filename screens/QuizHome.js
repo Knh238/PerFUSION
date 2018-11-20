@@ -88,7 +88,7 @@ export default class QuizHomeScreen extends React.Component {
                 fontSize: 28,
                 color: "rgba(96,100,109, 1)",
                 textAlign: "center",
-                fontFamily: "fira"
+                fontFamily: "playfair"
               }}
             >
               This will be your home page for quizzes{"\n"}
@@ -97,8 +97,9 @@ export default class QuizHomeScreen extends React.Component {
               style={{
                 fontSize: 20,
                 color: "royalblue",
-                textAlign: "center",
-                fontFamily: "fira"
+                paddingLeft: 5,
+                // textAlign: "center",
+                fontFamily: "playfair"
               }}
             >
               It will have a series of buttons
@@ -106,15 +107,16 @@ export default class QuizHomeScreen extends React.Component {
             <Text
               style={{
                 fontSize: 15,
+                paddingLeft: 15,
                 // color: "navy",
                 // textAlign: "left",
                 // marginLeft: 40,
-                fontFamily: "fira"
+                fontFamily: "playfair"
               }}
             >
               {" "}
-              1.by chapter {"\n"} 2. or by topic{"\n"} 3. one maybe 'feeling
-              lucky'or 'random/russian roulette option{"\n"}
+              1. By chapter ? {"\n"} 2. Or by topic ? {"\n"} 3. Maybe one 'I'm
+              feeling lucky'or 'random'/'russian roulette' option {"\n"}
             </Text>
 
             <ButtonGroup

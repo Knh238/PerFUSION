@@ -26,7 +26,8 @@ class ChapterOne extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = { show: "false" };
+    /// this.props.navigation.state.params.chapter.sections;
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
@@ -46,11 +47,24 @@ class ChapterOne extends Component {
     this.setState({ [key]: !this.state[key] });
   }
   showContents() {
+    //showContents(index) {
+    // const id = event;
+    // var self = this;
+    // console.log('index'index);
+    // self.setState({this.state.currentSection.subsections[0][`${index}`].show: !this.state.currentSection.subsections[0][index].show}).
+
     this.setState({ show: !this.state.show });
   }
   // handleExpandClick = () => {
   //   this.setState(state => ({ expanded: !state.expanded }));
   // };
+  // componentDidMount() {
+  //   var self = this;
+  //   const currSection = this.props.navigation.state.params.chapter;
+
+  //   self.setState({ currentSection: currSection });
+  // }
+
   //   componentDidMount() {
   //     this._mounted = true;
   //     var self = this;
@@ -110,14 +124,15 @@ class ChapterOne extends Component {
       color: "5FA6B9"
     };
     const { chapter } = nav.state.params;
-    // console.log("this is subsections", chapter);
+    // const chapter = this.state.currentSection;
+    // console.log(
+    //   "this is subsections",
+    //   this.props.navigation.state.params.chapter
+    // );
+    console.log("this sateae is ", this.state);
     return (
       <View
         style={{
-          // paddingTop: 10,
-          // paddingLeft: 10,
-          // paddingRight: 10,
-          // paddingBottom: 10,
           padding: 10,
           backgroundColor: "#ECEFF1"
         }}
@@ -127,7 +142,6 @@ class ChapterOne extends Component {
             style={{
               fontSize: 18,
               // color: "white",
-
               textAlign: "center",
               // fontFamily: "playfair"
               fontFamily: "permanent-marker"
@@ -139,7 +153,6 @@ class ChapterOne extends Component {
             style={{
               fontSize: 15,
               // color: "white",
-
               textAlign: "center",
               fontFamily: "playfair"
             }}
@@ -148,7 +161,7 @@ class ChapterOne extends Component {
             || heartbeat bookmark icon
           </Text>
           {chapter
-            ? chapter.subsections[0].sections.map(task => {
+            ? chapter.subsections[0].sections.map((task, index) => {
                 return (
                   <Card
                     raised={"true"}
@@ -163,43 +176,6 @@ class ChapterOne extends Component {
                       // alignContent: "space-between"
                     }}
                   >
-                    {/* <CheckBox
-                        // containerStyle={{
-                        //   marginLeft: 0,
-                        //   marginRight: 0,
-                        //   borderWidth: 0
-
-                        //   // backgroundColor: "white"
-                        // }}
-                        center
-                        iconRight
-                        checkedColor={"aqua"}
-                        checkedIcon="bookmark"
-                        uncheckedIcon="bookmark-o"
-                        checked={this.state[task.key]}
-                        onPress={() => this.handleCheck(task.key)}
-                      />
-                      > */}
-                    {/* <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                      </IconButton> */}
-                    {/* <IconToggle name="bookmark" underlayColor="pink" /> */}
-
-                    {/* <CheckBox
-                      containerStyle={{
-                        marginLeft: 0,
-                        marginRight: 0,
-                        borderWidth: 0,
-                        backgroundColor: "royalblue",
-                        float: "right"
-                      }}
-                      right
-                      checkedColor={"aqua"}
-                      checkedIcon="bookmark"
-                      uncheckedIcon="bookmark-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
-                    /> */}
                     <CheckBox
                       containerStyle={{
                         marginLeft: 0,
@@ -230,7 +206,13 @@ class ChapterOne extends Component {
                       checked={this.state[task.key]}
                       onPress={() => this.handleCheck(task.key)}
                     />
-                    <TouchableOpacity onPress={() => this.showContents()}>
+                    <TouchableOpacity
+                      // onPress={() =>
+                      //   console.log("task", task.show, "index", index)
+                      // }
+                      onPress={() => this.showContents()}
+                    >
+                      {/* //this.showContents}> */}
                       <Text
                         style={{
                           fontSize: 22,
@@ -245,6 +227,7 @@ class ChapterOne extends Component {
                         {task.title}
                       </Text>
                     </TouchableOpacity>
+                    {/* {this.state.currentSection.subsections[0][index].show ? ( */}
                     {this.state.show ? (
                       <Bullets points={task.contents} />
                     ) : null}
@@ -267,3 +250,4 @@ export default ChapterOne;
 //So to delete it from that---we will add that later? it would delete from both
 //perhaps right now it only deletes from one ==the users who have highlighted array--not on the users highlights array yet
 //so we aren't toggling--true or false or complete or incomplete. we are adding or removing the user name form the array
+// bookmarkedBy ["kristin","personTwo"]

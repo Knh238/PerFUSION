@@ -26,13 +26,14 @@ class ChapterOne extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = { show: false };
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
     // this.showItem=this.showItem.bind(this)
     // this.makeList = this.makeList.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
+    this.showContents = this.showContents.bind(this);
   }
   handleCheck(key) {
     // firebase
@@ -44,7 +45,9 @@ class ChapterOne extends Component {
     //   .then(
     this.setState({ [key]: !this.state[key] });
   }
-
+  showContents() {
+    this.setState({ show: !this.state.show });
+  }
   // handleExpandClick = () => {
   //   this.setState(state => ({ expanded: !state.expanded }));
   // };
@@ -109,27 +112,54 @@ class ChapterOne extends Component {
     const { chapter } = nav.state.params;
     // console.log("this is subsections", chapter);
     return (
-      <View style={{ marginTop: 10, backgroundColor: "#5FA6B9" }}>
+      <View
+        style={{
+          // paddingTop: 10,
+          // paddingLeft: 10,
+          // paddingRight: 10,
+          // paddingBottom: 10,
+          padding: 10,
+          backgroundColor: "#ECEFF1"
+        }}
+      >
         <ScrollView>
           <Text
             style={{
               fontSize: 18,
-              color: "white",
-              marginLeft: 5,
-              marginRight: 5,
+              // color: "white",
+
+              textAlign: "center",
+              // fontFamily: "playfair"
+              fontFamily: "permanent-marker"
+            }}
+          >
+            Option # 1 : "Chart-ed"
+          </Text>
+          <Text
+            style={{
+              fontSize: 15,
+              // color: "white",
+
               textAlign: "center",
               fontFamily: "playfair"
             }}
           >
-            native base and some material ui && font: playfair
+            font: permanent marker & playfair || native base &&some material ui
+            || heartbeat bookmark icon
           </Text>
           {chapter
             ? chapter.subsections[0].sections.map(task => {
                 return (
                   <Card
+                    raised={"true"}
                     //   containerStyle={{ backgroundColor: "grey" }}
                     style={{
-                      display: "flex"
+                      display: "flex",
+                      borderRadius: 80,
+                      borderStyle: "solid",
+                      borderWidth: "5px",
+                      borderColor: "black"
+                      // backgroundColor: "#90CAF9"
                       // alignContent: "space-between"
                     }}
                   >
@@ -178,44 +208,46 @@ class ChapterOne extends Component {
                         marginBottom: 0,
                         borderWidth: 0,
                         borderRadius: 0,
-                        backgroundColor: "royalblue"
+                        backgroundColor: "#90CAF9"
                       }}
                       right
-                      checkedColor={"aqua"}
-                      checkedIcon="bookmark"
-                      uncheckedIcon="bookmark-o"
+                      // limegreen:
+                      // checkedColor={"#76FF03"}
+                      //fuscia red /dark red
+                      checkedColor={"#F50057"}
+                      //yellow:
+                      //checkedColor={"#FFFF00"}
+                      // //bright blue/aqua
+                      // checkedColor={"#18FFFF"}
+                      uncheckedColor={"white"}
+                      color={"black"}
+                      // checkedIcon="bookmark"
+                      // uncheckedIcon="bookmark-o"
+                      // iconStyle="reverse"
+                      size="35"
+                      checkedIcon="heartbeat"
+                      uncheckedIcon="heartbeat"
                       checked={this.state[task.key]}
                       onPress={() => this.handleCheck(task.key)}
                     />
-                    <Text
-                      style={{
-                        fontSize: 28,
-                        // color: "rgba(96,100,109, 1)",
-                        color: "white",
-                        backgroundColor: "royalblue",
-                        textAlign: "center",
-                        fontFamily: "playfairBold"
-                      }}
-                    >
-                      {/* <CheckBox
-                        containerStyle={{
-                          marginLeft: 0,
-                          marginRight: 0,
-                          borderWidth: 0,
-                          backgroundColor: "royalblue",
-                          float: "right"
+                    <TouchableOpacity onPress={() => this.showContents()}>
+                      <Text
+                        style={{
+                          fontSize: 22,
+                          // color: "rgba(96,100,109, 1)",
+                          color: "white",
+                          backgroundColor: "#90CAF9",
+                          textAlign: "center",
+                          // fontFamily: "playfairBold"
+                          fontFamily: "permanent-marker"
                         }}
-                        center
-                        checkedColor={"aqua"}
-                        checkedIcon="bookmark"
-                        uncheckedIcon="bookmark-o"
-                        checked={this.state[task.key]}
-                        onPress={() => this.handleCheck(task.key)}
-                      /> */}
-                      {task.title}
-                    </Text>
-
-                    <Bullets points={task.contents} />
+                      >
+                        {task.title}
+                      </Text>
+                    </TouchableOpacity>
+                    {this.state.show ? (
+                      <Bullets points={task.contents} />
+                    ) : null}
                   </Card>
                 );
               })
@@ -227,3 +259,11 @@ class ChapterOne extends Component {
 }
 
 export default ChapterOne;
+
+///add property to data base
+//array of user emails --marked []includes this.user or i'll hardcode my email address
+//as i add that email to that array on click
+//i will also add it to users bookmarks array. this will be an array of objects. it will put the entire chapter1-subsection. and then the array index.
+//So to delete it from that---we will add that later? it would delete from both
+//perhaps right now it only deletes from one ==the users who have highlighted array--not on the users highlights array yet
+//so we aren't toggling--true or false or complete or incomplete. we are adding or removing the user name form the array

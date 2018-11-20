@@ -43,7 +43,11 @@ class Bullets2 extends Component {
           titleNumberOfLines={20}
           // subtitleNumberOfLines={3}
           hideChevron
-          titleStyle={{ display: "flex", fontFamily: "space-mono" }}
+          titleStyle={{
+            display: "flex",
+            fontFamily: "space-mono",
+            fontSize: 18
+          }}
         />
       ))
     );

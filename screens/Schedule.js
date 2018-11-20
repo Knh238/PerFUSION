@@ -13,11 +13,12 @@ import {
 } from "react-native";
 // import { List, ListItem } from "react-native-elements";
 import { List, ListItem } from "native-base";
-import { Button, ButtonGroup } from "react-native-elements";
+import { Button, ButtonGroup, Icon } from "react-native-elements";
 // import Icon from "react-native-vector-icons/FontAwesome";
 // import { Icon } from "expo";
-import { Icon } from "react-native-material-ui";
+// import { Icon } from "react-native-material-ui";
 import { WebBrowser } from "expo";
+import { LinearGradient } from "expo";
 
 import { MonoText } from "../components/StyledText";
 
@@ -62,21 +63,6 @@ export default class ScheduleHomeScreen extends React.Component {
             paddingTop: 30
           }}
         >
-          {/* <Image
-            source={
-              __DEV__
-                ? require("../assets/images/heart.png")
-                : require("../assets/images/heart.png")
-            }
-            style={{
-              width: 50,
-              height: 60,
-              resizeMode: "contain",
-              marginTop: 3,
-              marginLeft: -10
-            }}
-          /> */}
-
           <Text
             style={{
               fontSize: 28,
@@ -87,7 +73,29 @@ export default class ScheduleHomeScreen extends React.Component {
           >
             Review Schedule By Week
           </Text>
-          <Text
+          {/* <LinearGradient
+            colors={["#90CAF9", "#2196F3", "#1976D2"]}
+            // style={{ padding: 15, alignItems: "center", borderRadius: 5 }}
+          > */}
+          <Icon
+            //reverse
+            style={{
+              paddingTop: 10,
+              paddingBottom: 10
+
+              //colors: '{["#90CAF9", "#2196F3", "#1976D2"]}'
+            }}
+            large
+            name="heartbeat"
+            type="font-awesome"
+            color="#90CAF9"
+            // color="royalblue"
+            //color="linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%)"
+            center
+            onPress={() => nav.navigate("Home")}
+          />
+          {/* </LinearGradient> */}
+          {/* <Text
             style={{
               fontSize: 20,
               color: "royalblue",
@@ -96,13 +104,11 @@ export default class ScheduleHomeScreen extends React.Component {
             }}
           >
             Yeah.. this gonna take awhile!
-          </Text>
+          </Text> */}
           <Text
             style={{
               fontSize: 15,
-              // color: "navy",
               textAlign: "center",
-              // marginLeft: 40,
               fontFamily: "playfair"
             }}
           >
@@ -133,7 +139,6 @@ export default class ScheduleHomeScreen extends React.Component {
             title="Week 2!"
           />
           <Button
-            // icon={<Icon name="arrow-right" size={15} color="white" />}
             buttonStyle={{
               backgroundColor: "#2196F3",
               borderWidth: 0,
@@ -142,12 +147,9 @@ export default class ScheduleHomeScreen extends React.Component {
               marginRight: 35,
               marginTop: 10
             }}
-            // Icon="arrowright"
             title="Week 3"
-            // rightIcon="arrow"
           />
           <Button
-            // icon={<Icon name="arrow-right" size={15} color="white" />}
             buttonStyle={{
               backgroundColor: "#1E88E5",
               borderWidth: 0,
@@ -156,12 +158,9 @@ export default class ScheduleHomeScreen extends React.Component {
               marginRight: 35,
               marginTop: 10
             }}
-            // Icon="arrowright"
             title="Week 4"
-            // rightIcon="arrow"
           />
           <Button
-            // icon={<Icon name="arrow-right" size={15} color="white" />}
             buttonStyle={{
               backgroundColor: "#1976D2",
               borderWidth: 0,
@@ -170,12 +169,9 @@ export default class ScheduleHomeScreen extends React.Component {
               marginRight: 35,
               marginTop: 10
             }}
-            // Icon="arrowright"
             title="Week 5"
-            // rightIcon="arrow"
           />
           <Button
-            // icon={<Icon name="arrow-right" size={15} color="white" />}
             buttonStyle={{
               backgroundColor: "#1565C0",
               borderWidth: 0,
@@ -184,9 +180,7 @@ export default class ScheduleHomeScreen extends React.Component {
               marginRight: 35,
               marginTop: 10
             }}
-            // Icon="arrowright"
             title="Week 6"
-            // rightIcon="arrow"
           />
         </ScrollView>
       </View>

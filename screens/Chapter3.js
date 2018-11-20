@@ -131,18 +131,18 @@ class ChapterThree extends Component {
     return (
       // <SafeAreaView>
       <View
-        style={{
-          display: "flex",
+      // style={{
+      //   // display: "flex",
 
-          marginTop: 10,
-          //backgroundColor: "#5FA6B9",
-          // float: "center",
-          // alignItems: "stretch"
-          flexGrow: 1,
-          paddingBottom: 10
+      //   padding: 10
+      //   //backgroundColor: "#5FA6B9",
+      //   // float: "center",
+      //   // alignItems: "stretch"
+      //   // flexGrow: 1,
+      //   // paddingBottom: 10
 
-          // backgroundImage: "linear-gradient(to bottom right, red, yellow)"
-        }}
+      //   // backgroundImage: "linear-gradient(to bottom right, red, yellow)"
+      // }}
       >
         <ScrollView>
           <LinearGradient
@@ -151,76 +151,91 @@ class ChapterThree extends Component {
           >
             <Text
               style={{
+                fontSize: 20,
+                // color: "white",
+                padding: 5,
+                textAlign: "center",
+                fontFamily: "permanent-marker"
+              }}
+            >
+              Option # 3 : "NIGHT SKY"
+            </Text>
+            <Text
+              style={{
                 fontSize: 15,
                 // color: "white",
-                marginLeft: 5,
-                marginRight: 5,
-                marginTop: 5,
+                padding: 5,
                 textAlign: "center",
                 fontFamily: "firaBold"
               }}
             >
-              fira bold and gradient background
+              font: fira bold || gradient background --can be any combo of
+              colors! || star bookmark icon
             </Text>
-
-            {chapter
-              ? chapter.subsections[0].sections.map(task => {
-                  return (
-                    <Card
-                      //   containerStyle={{ backgroundColor: "grey" }}
-                      style={{
-                        display: "flex",
-                        // alignContent: "space-around",
-                        fontFamily: "firaBold",
-                        marginBottom: 10
-                      }}
-                    >
-                      <CheckBox
-                        containerStyle={{
-                          marginLeft: 0,
-                          marginRight: 0,
-                          marginTop: 0,
-                          marginBottom: 0,
-                          borderWidth: 0,
-                          borderRadius: 0,
-                          backgroundColor: "white"
+            <View style={{ padding: 20 }}>
+              {chapter
+                ? chapter.subsections[0].sections.map(task => {
+                    return (
+                      <Card
+                        //   containerStyle={{ backgroundColor: "grey" }}
+                        style={{
+                          // display: "flex",
+                          // alignContent: "space-around",
+                          fontFamily: "firaBold"
+                          // padding: 2
                         }}
-                        right
-                        checkedColor={"orange"}
-                        checkedIcon="bookmark"
-                        uncheckedIcon="bookmark-o"
-                        checked={this.state[task.key]}
-                        onPress={() => this.handleCheck(task.key)}
-                      />
-                      <TouchableOpacity
-                        onPress={
-                          () => this.showContents()
-                          //   <Bullets2 points={task.contents} />
-                          //   console.log("this is pressed", task.contents)
-                          //   return this.makeList(task.contents);
-                          //   <Bullets points={task.contents} />;
-                          // console.log(this.makeList(task.contents));
-                        }
                       >
-                        <Text
-                          style={{
-                            fontSize: 28,
-                            color: "rgba(96,100,109, 1)",
-                            textAlign: "center",
-                            fontFamily: "fira"
+                        <CheckBox
+                          containerStyle={{
+                            marginLeft: 0,
+                            marginRight: 0,
+                            marginTop: 0,
+                            marginBottom: 0,
+                            borderWidth: 0,
+                            borderRadius: 0,
+                            backgroundColor: "white"
                           }}
+                          right
+                          checkedColor={"orange"}
+                          uncheckedColor={"black"}
+                          size="35"
+                          // checkedIcon="bookmark"
+                          // uncheckedIcon="bookmark-o"
+                          checkedIcon="star"
+                          uncheckedIcon="star-o"
+                          checked={this.state[task.key]}
+                          onPress={() => this.handleCheck(task.key)}
+                        />
+                        <TouchableOpacity
+                          onPress={
+                            () => this.showContents()
+                            //   <Bullets2 points={task.contents} />
+                            //   console.log("this is pressed", task.contents)
+                            //   return this.makeList(task.contents);
+                            //   <Bullets points={task.contents} />;
+                            // console.log(this.makeList(task.contents));
+                          }
                         >
-                          {task.title}
-                        </Text>
-                      </TouchableOpacity>
-                      <Divider />
-                      {this.state.show ? (
-                        <Bullets3 points={task.contents} />
-                      ) : null}
-                    </Card>
-                  );
-                })
-              : null}
+                          <Text
+                            style={{
+                              fontSize: 20,
+                              // color: "rgba(96,100,109, 1)",
+                              textAlign: "center",
+                              fontFamily: "firaBold"
+                            }}
+                          >
+                            {task.title}
+                          </Text>
+                        </TouchableOpacity>
+                        <Divider />
+                        {this.state.show ? (
+                          <Bullets3 points={task.contents} />
+                        ) : null}
+                      </Card>
+                    );
+                  })
+                : null}
+            </View>
           </LinearGradient>
         </ScrollView>
       </View>

@@ -130,11 +130,12 @@ class ChapterTwo extends Component {
     return (
       <View
         style={{
-          display: "flex",
-          marginTop: 10,
-          backgroundColor: "#5FA6B9",
-          float: "center",
-          flexGrow: 1
+          // display: "flex",
+
+          padding: 10,
+          backgroundColor: "#5FA6B9"
+          // float: "center",
+          // flexGrow: 1
           // marginBottom: 10
         }}
       >
@@ -147,10 +148,22 @@ class ChapterTwo extends Component {
               marginLeft: 5,
               marginRight: 5,
               textAlign: "center",
+              fontFamily: "permanent-marker"
+            }}
+          >
+            Option # 2 : "NO SCRUBS"
+          </Text>
+          <Text
+            style={{
+              fontSize: 15,
+              color: "white",
+              // marginLeft: 5,
+              // marginRight: 5,
+              textAlign: "center",
               fontFamily: "space-mono"
             }}
           >
-            react-native-elements && font: space mono
+            font: space mono || react-native-elements || bookmark icon
           </Text>
           {chapter
             ? chapter.subsections[0].sections.map(task => {
@@ -160,6 +173,7 @@ class ChapterTwo extends Component {
                     style={{
                       // display: "flex",
                       // alignContent: "space-between",
+
                       fontFamily: "space-mono"
                     }}
                   >
@@ -175,6 +189,8 @@ class ChapterTwo extends Component {
                       }}
                       right
                       checkedColor={"aqua"}
+                      size="35"
+                      uncheckedColor={"#424242"}
                       checkedIcon="bookmark"
                       uncheckedIcon="bookmark-o"
                       checked={this.state[task.key]}
@@ -192,23 +208,27 @@ class ChapterTwo extends Component {
                     >
                       <Text
                         style={{
-                          fontSize: 28,
-                          color: "rgba(96,100,109, 1)",
+                          fontSize: 23,
+                          // color: "rgba(96,100,109, 1)",
+                          color: "#424242",
+
                           textAlign: "center",
                           fontFamily: "space-mono"
+
+                          // fontWeight: "bold",
+                          // textShadowColor: "rgba(0, 0, 0, 0.75)",
+                          // textShadowOffset: { width: -1, height: 1 },
+                          // textShadowRadius: 1
+                          // textShadowColor: "pink",
+                          // textShadowRadius: 12
                         }}
                       >
                         {task.title}
                       </Text>
                     </TouchableOpacity>
-                    <Divider />
+
                     {this.state.show ? (
-                      <List
-                        style={{
-                          display: "flex",
-                          flexGrow: 1
-                        }}
-                      >
+                      <List>
                         <Bullets2 points={task.contents} />
                       </List>
                     ) : null}

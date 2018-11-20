@@ -31,10 +31,10 @@ class Bullets3 extends Component {
         <ListItem title={item}>
           <Text
             style={{
-              fontSize: 18,
+              fontSize: 16,
               //   color: "rgba(96,100,109, 1)",
-              textAlign: "left",
-              marginLeft: 20,
+              // textAlign: "left",
+              // marginLeft: 20,
               fontFamily: "fira"
             }}
           >

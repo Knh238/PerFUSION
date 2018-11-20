@@ -204,7 +204,7 @@ class CustomDrawer extends Component {
                   marginLeft: 0,
                   paddingLeft: 10
                 }}
-                onPress={() => nav.navigate("Profile")}
+                onPress={() => nav.navigate("Links")}
               >
                 <Body>
                   <Text style={{ fontFamily: "poppins" }}>
@@ -264,7 +264,7 @@ class CustomDrawer extends Component {
                   <Icon
                     //reverse
                     raised
-                    name="angle-double-down"
+                    name="chevron-down"
                     type="font-awesome"
                     color="royalblue"
                     size="15"
@@ -283,7 +283,7 @@ class CustomDrawer extends Component {
                         //reverse
                         // name="caret-down"
                         raised
-                        name="angle-double-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -311,7 +311,7 @@ class CustomDrawer extends Component {
                       <Icon
                         //reverse
                         raised
-                        name="angle-double-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -339,7 +339,7 @@ class CustomDrawer extends Component {
                     <Right>
                       <Icon
                         raised
-                        name="angle-double-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -364,7 +364,7 @@ class CustomDrawer extends Component {
                     <Right>
                       <Icon
                         raised
-                        name="angle-double-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -388,7 +388,7 @@ class CustomDrawer extends Component {
                     <Right>
                       <Icon
                         raised
-                        name="angle-double-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"
@@ -414,7 +414,7 @@ class CustomDrawer extends Component {
                   <Icon
                     //reverse
                     raised
-                    name="angle-double-down"
+                    name="chevron-down"
                     type="font-awesome"
                     color="royalblue"
                     size="15"
@@ -581,7 +581,7 @@ class CustomDrawer extends Component {
                   <Icon
                     //reverse
                     raised
-                    name="angle-double-down"
+                    name="chevron-down"
                     type="font-awesome"
                     color="royalblue"
                     size="15"
@@ -605,9 +605,9 @@ class CustomDrawer extends Component {
                     </Body>
                     <Right>
                       <Icon
-                        reverse
+                        // reverse
                         raised
-                        name="caret-right"
+                        name="chevron-right"
                         type="font-awesome"
                         color="royalblue"
                         size="15"

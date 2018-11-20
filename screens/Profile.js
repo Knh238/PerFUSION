@@ -11,7 +11,7 @@ import {
   Left,
   Right
 } from "native-base";
-import { Button, CheckBox } from "react-native-elements";
+import { Button, CheckBox, Icon } from "react-native-elements";
 import { Card } from "react-native-material-ui";
 
 class Profile extends Component {
@@ -35,7 +35,7 @@ class Profile extends Component {
               fontFamily: "space-mono"
             }}
           >
-            {"\n"}Some font choices {"\n"}
+            {"\n"}Some font choices
           </Text>
           <List>
             <ListItem>
@@ -167,6 +167,87 @@ class Profile extends Component {
               >
                 This is in permanent marker
               </Text>
+            </ListItem>
+            <ListItem
+              icon
+              title="3.3"
+              onPress={() =>
+                nav.navigate("ChapterThree", {
+                  chapter: this.state.chapter
+                })
+              }
+            >
+              <Body>
+                <Text style={{ fontFamily: "poppins" }}>chevron-right</Text>
+              </Body>
+              <Right>
+                <Icon
+                  //reverse
+                  raised
+                  name="chevron-right"
+                  type="font-awesome"
+                  color="royalblue"
+                  size="15"
+                  // onPress={() =>
+                  //   nav.navigate("ChapterThree", {
+                  //     chapter: this.state.chapter
+                  //   })
+                  // }
+                />
+              </Right>
+            </ListItem>
+            <ListItem
+              icon
+              style={{
+                marginLeft: 0,
+                paddingLeft: 10,
+                backgroundColor: "#F2F2F2"
+              }}
+            >
+              <Body>
+                <Text style={{ fontFamily: "poppins" }}>
+                  angle double right:
+                </Text>
+              </Body>
+              <Right>
+                <Icon
+                  //reverse
+                  raised
+                  name="angle-double-right"
+                  type="font-awesome"
+                  color="royalblue"
+                  size="15"
+                  onPress={() => this.clickTwo()}
+                />
+              </Right>
+            </ListItem>
+            <ListItem
+              icon
+              title="3.1"
+              onPress={() =>
+                nav.navigate("ChapterThree", {
+                  chapter: this.state.chapter
+                })
+              }
+            >
+              <Body>
+                <Text style={{ fontFamily: "poppins" }}>caret right </Text>
+              </Body>
+              <Right>
+                <Icon
+                  reverse
+                  raised
+                  name="caret-right"
+                  type="font-awesome"
+                  color="royalblue"
+                  size="15"
+                  onPress={() =>
+                    nav.navigate("ChapterThree", {
+                      chapter: this.state.chapter
+                    })
+                  }
+                />
+              </Right>
             </ListItem>
           </List>
         </View>

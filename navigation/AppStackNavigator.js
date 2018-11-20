@@ -15,6 +15,7 @@ import WeekScreen from "../screens/Week";
 // import ProjectHome from "../screens/ProjectHome";
 import Profile from "../screens/Profile";
 import ModalExample from "../screens/NewNote";
+import LinksScreen from "../screens/LinksScreen";
 // import Photos from "../screens/Photos";
 // import CreatePhoto from "../screens/CreatePhoto";
 // import HeartIcon from 'material-ui'
@@ -90,6 +91,11 @@ const AppStackNavigator = createStackNavigator(
     },
     Note: {
       screen: ModalExample,
+      // headerRight: null,
+      appBarVisible: true
+    },
+    Links: {
+      screen: LinksScreen,
       // headerRight: null,
       appBarVisible: true
     }

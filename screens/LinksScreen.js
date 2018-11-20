@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   }
 });
 
+//adds totally new data or section/cahpter. can mass do this.
 // function addData() {
 //   let newKey;
 //   let currentUser;
@@ -45,30 +46,16 @@ const styles = StyleSheet.create({
 //           num: 1,
 //           sections: [
 //             {
-//               title: "Basic Theory of Circulation Function",
-//               contents: `Blood flow to the tissue is controlled in relation to the tissues in need
-//         The cardiac output (CO) is controlled by the sum of all tissue flow
-//         Arterial pressure is controlled independently of either local blood flow control of CO`
+//               title: "Newtonian Fluids ",
+//               contents: [`Water, saline, and plasma`,'Viscosity does not vary with shear rate']
 //             },
 //             {
-//               title: "Three Theories of Pulsatile Flow",
-//               contents: `Energy Equivalent Pressure: Extra energy available to capillaries for patency \nCapillary Critical Closing Pressure\n Non-pulsatile = microcirculatory shunting, decrease blood flow
-// \n Neuroendocrine Reflex Mechanism Effected by Baroreceptor Discharge\n Remains operative through non-pulsatile flow \n Therefore, there is improved tissue function\nLower afterload for ventricle at end of perfusion period\nLower level of vascular resistance\nNon-pulse flow: \n Progressive elevation in Systemic Vascular Resistance\n Renin-Angiotensin Activation\n Continues Post-CPB`
-//             },
+//                title: "Non-Newtonian Fluids ",
+//               contents: [`Blood (has formed elements),'Viscosity decreases with increase shear rate'] },
 //             {
-//               title: "Blood Information and its’ Pathways",
-//               contents: `Blood flow to the tissue is controlled in relation to the tissues in need
-//             The cardiac output (CO) is controlled by the sum of all tissue flow
-//             Arterial pressure is controlled independently of either local blood flow control of CO`
-//             },
-//             {
-//               title: "Basic Theory of Circulation Function",
-//               contents: `Blood Components`,
-//               text: `Plasma = 55% \nWater = 90%\nSolids = 10% (Proteins 6.5-8 g/dL and Carbs)\nFormed Elements = 45%
-//               RBC, WBC, Plt`,
-//               topic: "Newtonian Fluids",
-//               content:
-//                 "Water, saline, and plasma\nViscosity does not vary with shear rate"
+//               title: "Blood Types and Donating",
+//
+//               contents: [`Prevalence: \n  1. O+ = 38%, universal receiver  2.A+ = 34%  3. AB - = 1%, universal donor','Give to: \n  + to + \m  - to - or +','Receive from: \n  + to + or - \n - to -']
 //             }
 //           ]
 //         },
@@ -79,3 +66,26 @@ const styles = StyleSheet.create({
 //     });
 // }
 // addData();
+
+//how to add to existing array of values/subsections
+//will need to manually loko up the index value in the database
+//reference location is basically like a file location. and yest the - dahs does matter
+// function addMoreData(dataObj, nextIndex) {
+//   const newKey = nextIndex;
+//   firebase
+//     .database()
+//     .ref("chapters/-LRU9y3vSSVlmxgkjUfT/subsections/0/sections/" + newKey)
+//     .set(dataObj);
+// }
+// addMoreData(
+//   {
+//     title: "Blood Types and Donating",
+
+//     contents: [
+//       "Prevalence: \n  1. O+ = 38%, universal receiver  2.A+ = 34%  3. AB - = 1%, universal donor",
+//       "Give to: \n  + to + m  - to - or +",
+//       "Receive from: \n  + to + or - \n - to -"
+//     ]
+//   },
+//   6
+// );

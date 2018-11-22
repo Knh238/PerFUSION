@@ -31,40 +31,20 @@ export default class App extends Component {
         />
       );
     } else {
-      return (
-        // <View style={styles.container}>
-        // <SafeAreaView>
-        /* // {Platform.OS === "ios" && <StatusBar barStyle="default" />} */
-        // <View>
-        <AppDrawerNavigator />
-        // <AppStackNavigator />
-        //   <AppTabNavigator />
-        // </View>
-      );
+      return <AppDrawerNavigator />;
     }
   }
 
   _loadResourcesAsync = async () => {
     return Promise.all([
-      Asset.loadAsync([
-        require("./assets/images/robot-dev.png"),
-        require("./assets/images/robot-prod.png")
-      ]),
+      Asset.loadAsync([require("./assets/images/heart.png")]),
       Font.loadAsync({
-        // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
-        // We include SpaceMono because we use it in HomeScreen.js. Feel free
-        // to remove this if you are not using it in your app
-        "space-mono": require("./assets/fonts/SpaceMono-Regular.ttf"),
         "permanent-marker": require("./assets/fonts/PermanentMarker-Regular.ttf"),
         Roboto: require("./assets/fonts/Roboto-Regular.ttf"),
         playfair: require("./assets/fonts/PlayfairDisplay-Regular.ttf"),
-        playfairBold: require("./assets/fonts/PlayfairDisplay-Bold.ttf"),
-        fira: require("./assets/fonts/FiraSans-Regular.ttf"),
-        firaBold: require("./assets/fonts/FiraSans-SemiBold.ttf"),
-        poppins: require("./assets/fonts/Poppins-Regular.ttf"),
-        patrick: require("./assets/fonts/PatrickHand-Regular.ttf"),
-        rubik: require("./assets/fonts/Rubik-Regular.ttf")
+
+        poppins: require("./assets/fonts/Poppins-Regular.ttf")
       })
     ]);
   };

@@ -44,7 +44,8 @@ class ChapterTwo extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    // this.state = {};
+    this.state = { show: [], marked: [] };
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
     // this.handleCheck = this.handleCheck.bind(this);
@@ -54,62 +55,43 @@ class ChapterTwo extends Component {
     this.handleCheck = this.handleCheck.bind(this);
   }
   handleCheck(key) {
+    //eventually will have to update in databse
     // firebase
     //   .database()
-    //   .ref('tasks/' + key)
+    //   .ref('chapter/-LRU9y3vSSVlmxgkjUfT/sections' + key)
     //   .update({
-    //     completed: !this.state[key],
+    //     show: !this.state[key],
     //   })
     //   .then(
-    this.setState({ [key]: !this.state[key] });
+    // this.setState({ [key]: !this.state[key] });
+    //console.log("evt is -----", evt, "state also ----", this.state.show);
+    if (this.state.marked.includes(key)) {
+      const arr = this.state.marked.filter(a => a !== key);
+      this.setState({ marked: arr });
+    } else {
+      const alt = this.state.marked;
+      alt.push(key);
+      this.setState({ marked: alt });
+    }
   }
 
-  //   componentDidMount() {
-  //     this._mounted = true;
-  //     var self = this;
-  //     // await firebase.auth().onAuthStateChanged(function(user) {
-  //     //   if (user) {
-  //     const ref = firebase.database().ref();
-  //     ref.on("value", function(snapshot) {
-  //       const chapters = snapshot.val().chapters;
-  //       //   let chOne;
-  //       for (var key in chapters) {
-  //         if (chapters[key].title === 1) {
-  //           const chOne = chapters[key];
-  //           console.log("chone", chOne);
-  //         }
-  //       }
-  //       self.setState({ chapter: chOne });
-  //     });
-  //     //   } else {
-  //     //     console.log("not logged in");
-  //     //   }
-  //     // });
-  //   }
+  // componentDidMount() {
+  //eventually have to make an actual database call here
+  //or pass down a function from a higher order component to update databse
+  // }
 
-  //   componentWillUnmount() {
-  //     this._mounted = false;
-  //   }
+  showContents(evt) {
+    console.log("evt is -----", evt, "state also ----", this.state.show);
+    if (this.state.show.includes(evt)) {
+      const arr = this.state.show.filter(a => a !== evt);
+      console.log("arr -----", arr);
+      this.setState({ show: arr });
+    } else {
+      const alt = this.state.show;
+      alt.push(evt);
 
-  //   handleSubmit() {
-  //     const state = this.state;
-  //     const deleted = [];
-  //     for (var key in state) {
-  //       if (state[key] === true) {
-  //         deleted.push(key);
-  //         this.setState({ [key]: !this.state[key] });
-  //       }
-  //     }
-  //     deleted.map(todo => {
-  //       firebase
-  //         .database()
-  //         .ref("tasks")
-  //         .child(todo)
-  //         .remove();
-  //     });
-  //   }
-  showContents() {
-    this.setState({ show: !this.state.show });
+      this.setState({ show: alt });
+    }
   }
 
   render() {
@@ -120,13 +102,11 @@ class ChapterTwo extends Component {
       assigned: "person",
       color: "5FA6B9"
     };
-    //console.log(this.state);
-    // console.log(
-    //   "props in chapter one render",
-    //   this.props.navigation.state.params.chapter
-    // );
+
     const { chapter } = nav.state.params;
-    // console.log("this is subsections", chapter);
+    const topics = this.props.navigation.state.params.chapter.subsections[0]
+      .sections;
+
     return (
       <View
         style={{
@@ -165,8 +145,8 @@ class ChapterTwo extends Component {
           >
             font: space mono || react-native-elements || bookmark icon
           </Text>
-          {chapter
-            ? chapter.subsections[0].sections.map(task => {
+          {topics
+            ? topics.map((task, index) => {
                 return (
                   <Card
                     //   containerStyle={{ backgroundColor: "grey" }}
@@ -193,45 +173,37 @@ class ChapterTwo extends Component {
                       uncheckedColor={"#424242"}
                       checkedIcon="bookmark"
                       uncheckedIcon="bookmark-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      checked={this.state.marked.includes(index)}
+                      onPress={() => this.handleCheck(index)}
                     />
                     <TouchableOpacity
-                      onPress={
-                        () => this.showContents()
-                        //   <Bullets2 points={task.contents} />
-                        //   console.log("this is pressed", task.contents)
-                        //   return this.makeList(task.contents);
-                        //   <Bullets points={task.contents} />;
-                        // console.log(this.makeList(task.contents));
-                      }
+                      value={task.contents}
+                      //onPress={this.showContents(this)}
+                      //onPress={() => this.showContents(task, index)}
+                      onPress={() => this.showContents(index)}
                     >
                       <Text
                         style={{
                           fontSize: 23,
-                          // color: "rgba(96,100,109, 1)",
                           color: "#424242",
-
                           textAlign: "center",
                           fontFamily: "space-mono"
-
-                          // fontWeight: "bold",
-                          // textShadowColor: "rgba(0, 0, 0, 0.75)",
-                          // textShadowOffset: { width: -1, height: 1 },
-                          // textShadowRadius: 1
-                          // textShadowColor: "pink",
-                          // textShadowRadius: 12
                         }}
                       >
                         {task.title}
                       </Text>
+                      {this.state.show.includes(index) ? (
+                        <List>
+                          <Bullets2 points={task.contents} />
+                        </List>
+                      ) : null}
                     </TouchableOpacity>
 
-                    {this.state.show ? (
+                    {/* {this.state.show ? (
                       <List>
                         <Bullets2 points={task.contents} />
                       </List>
-                    ) : null}
+                    ) : null} */}
                   </Card>
                 );
               })

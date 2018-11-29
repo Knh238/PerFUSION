@@ -26,7 +26,7 @@ class ChapterOne extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = { show: "false" };
+    this.state = { show: [], marked: [] };
     /// this.props.navigation.state.params.chapter.sections;
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,86 +37,40 @@ class ChapterOne extends Component {
     this.showContents = this.showContents.bind(this);
   }
   handleCheck(key) {
+    //eventually will have to update in databse
     // firebase
     //   .database()
-    //   .ref('tasks/' + key)
+    //   .ref('chapter/-LRU9y3vSSVlmxgkjUfT/sections' + key)
     //   .update({
-    //     completed: !this.state[key],
+    //     show: !this.state[key],
     //   })
     //   .then(
-    this.setState({ [key]: !this.state[key] });
+    // this.setState({ [key]: !this.state[key] });
+    //console.log("evt is -----", evt, "state also ----", this.state.show);
+    if (this.state.marked.includes(key)) {
+      const arr = this.state.marked.filter(a => a !== key);
+      this.setState({ marked: arr });
+    } else {
+      const alt = this.state.marked;
+      alt.push(key);
+      this.setState({ marked: alt });
+    }
   }
-  showContents() {
-    //showContents(index) {
-    // const id = event;
-    // var self = this;
-    // console.log('index'index);
-    // self.setState({this.state.currentSection.subsections[0][`${index}`].show: !this.state.currentSection.subsections[0][index].show}).
 
-    this.setState({ show: !this.state.show });
+  showContents(evt) {
+    if (this.state.show.includes(evt)) {
+      const arr = this.state.show.filter(a => a !== evt);
+      this.setState({ show: arr });
+    } else {
+      const alt = this.state.show;
+      alt.push(evt);
+      this.setState({ show: alt });
+    }
   }
-  // handleExpandClick = () => {
-  //   this.setState(state => ({ expanded: !state.expanded }));
-  // };
-  // componentDidMount() {
-  //   var self = this;
-  //   const currSection = this.props.navigation.state.params.chapter;
-
-  //   self.setState({ currentSection: currSection });
-  // }
-
-  //   componentDidMount() {
-  //     this._mounted = true;
-  //     var self = this;
-  //     // await firebase.auth().onAuthStateChanged(function(user) {
-  //     //   if (user) {
-  //     const ref = firebase.database().ref();
-  //     ref.on("value", function(snapshot) {
-  //       const chapters = snapshot.val().chapters;
-  //       //   let chOne;
-  //       for (var key in chapters) {
-  //         if (chapters[key].title === 1) {
-  //           const chOne = chapters[key];
-  //           console.log("chone", chOne);
-  //         }
-  //       }
-  //       self.setState({ chapter: chOne });
-  //     });
-  //     //   } else {
-  //     //     console.log("not logged in");
-  //     //   }
-  //     // });
-  //   }
-
-  //   componentWillUnmount() {
-  //     this._mounted = false;
-  //   }
-
-  //   handleSubmit() {
-  //     const state = this.state;
-  //     const deleted = [];
-  //     for (var key in state) {
-  //       if (state[key] === true) {
-  //         deleted.push(key);
-  //         this.setState({ [key]: !this.state[key] });
-  //       }
-  //     }
-  //     deleted.map(todo => {
-  //       firebase
-  //         .database()
-  //         .ref("tasks")
-  //         .child(todo)
-  //         .remove();
-  //     });
-  //   }
 
   render() {
     const nav = this.props.navigation;
-    //console.log(this.state);
-    // console.log(
-    //   "props in chapter one render",
-    //   this.props.navigation.state.params.chapter
-    // );
+
     let task = {
       key: "hey",
       content: "Task",
@@ -187,40 +141,24 @@ class ChapterOne extends Component {
                         backgroundColor: "#90CAF9"
                       }}
                       right
-                      // limegreen:
-                      // checkedColor={"#76FF03"}
-                      //fuscia red /dark red
                       checkedColor={"#F50057"}
-                      //yellow:
-                      //checkedColor={"#FFFF00"}
-                      // //bright blue/aqua
-                      // checkedColor={"#18FFFF"}
                       uncheckedColor={"white"}
                       color={"black"}
-                      // checkedIcon="bookmark"
-                      // uncheckedIcon="bookmark-o"
-                      // iconStyle="reverse"
                       size="35"
                       checkedIcon="heartbeat"
                       uncheckedIcon="heartbeat"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      checked={this.state.marked.includes(index)}
+                      onPress={() => this.handleCheck(index)}
                     />
-                    <TouchableOpacity
-                      // onPress={() =>
-                      //   console.log("task", task.show, "index", index)
-                      // }
-                      onPress={() => this.showContents()}
-                    >
-                      {/* //this.showContents}> */}
+                    <TouchableOpacity onPress={() => this.showContents(index)}>
                       <Text
                         style={{
                           fontSize: 22,
-                          // color: "rgba(96,100,109, 1)",
+
                           color: "white",
                           backgroundColor: "#90CAF9",
                           textAlign: "center",
-                          // fontFamily: "playfairBold"
+
                           fontFamily: "permanent-marker"
                         }}
                       >
@@ -228,7 +166,7 @@ class ChapterOne extends Component {
                       </Text>
                     </TouchableOpacity>
                     {/* {this.state.currentSection.subsections[0][index].show ? ( */}
-                    {this.state.show ? (
+                    {this.state.show.includes(index) ? (
                       <Bullets points={task.contents} />
                     ) : null}
                   </Card>

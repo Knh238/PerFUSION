@@ -20,25 +20,33 @@ class WeekScreen extends Component {
   };
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { marked: [] };
     // this._mounted = false;
     // this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleCheck = this.handleCheck.bind(this);
-    // this.showItem=this.showItem.bind(this)
-    // this.makeList = this.makeList.bind(this);
+
     this.handleCheck = this.handleCheck.bind(this);
   }
+
   handleCheck(key) {
+    //eventually will have to update in databse
     // firebase
     //   .database()
-    //   .ref('tasks/' + key)
+    //   .ref('chapter/-LRU9y3vSSVlmxgkjUfT/sections' + key)
     //   .update({
-    //     completed: !this.state[key],
+    //     show: !this.state[key],
     //   })
     //   .then(
-    this.setState({ [key]: !this.state[key] });
+    // this.setState({ [key]: !this.state[key] });
+    //console.log("evt is -----", evt, "state also ----", this.state.show);
+    if (this.state.marked.includes(key)) {
+      const arr = this.state.marked.filter(a => a !== key);
+      this.setState({ marked: arr });
+    } else {
+      const alt = this.state.marked;
+      alt.push(key);
+      this.setState({ marked: alt });
+    }
   }
-
   render() {
     const nav = this.props.navigation;
     //console.log(this.state);
@@ -66,10 +74,8 @@ class WeekScreen extends Component {
             <Text
               style={{
                 fontSize: 28,
-                // color: "rgba(96,100,109, 1)",
                 color: "white",
                 backgroundColor: "#90CAF9",
-                // backgroundColor: "royalblue",
                 textAlign: "center",
                 fontFamily: "playfairBold",
                 marginLeft: 10,
@@ -122,7 +128,6 @@ class WeekScreen extends Component {
                 style={{
                   fontSize: 13,
                   color: "rgba(96,100,109, 1)",
-                  // color: "white",
                   fontFamily: "playfair"
                 }}
               >
@@ -140,17 +145,12 @@ class WeekScreen extends Component {
                 style={{
                   fontSize: 13,
                   color: "rgba(96,100,109, 1)",
-                  //color: "white",
-                  // backgroundColor: "royalblue",
-                  // textAlign: "center",
-                  // justifyContent: "right",
                   fontFamily: "playfair"
                 }}
               >
                 Lower priority:
               </Text>
               <Icon
-                // style={{ justifyContent: "flex-end" }}
                 name="lens"
                 type="materialIcons"
                 color="#ffea00"
@@ -161,7 +161,6 @@ class WeekScreen extends Component {
               <Text
                 style={{
                   fontSize: 20,
-                  // color: "rgba(96,100,109, 1)",
                   color: "white",
                   backgroundColor: "#42A5F5",
                   textAlign: "center",
@@ -175,7 +174,6 @@ class WeekScreen extends Component {
                 style={{
                   fontSize: 18,
                   color: "rgba(96,100,109, 1)",
-                  // color: "white",
                   backgroundColor: "white",
                   textAlign: "center",
                   fontFamily: "playfair"
@@ -189,7 +187,6 @@ class WeekScreen extends Component {
               <Text
                 style={{
                   fontSize: 22,
-                  // color: "rgba(96,100,109, 1)",
                   color: "white",
                   backgroundColor: "#2196F3",
                   textAlign: "center",
@@ -215,11 +212,12 @@ class WeekScreen extends Component {
                         backgroundColor: "white",
                         fontFamily: "playfair"
                       }}
+                      key={11}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      // checked={this.state[task.key]}
+                      // onPress={() => this.handleCheck(task.key)}
+                      checked={this.state.marked.includes(this.key)}
+                      onPress={() => this.handleCheck(this.key)}
                     />
                   }
                 />
@@ -239,10 +237,11 @@ class WeekScreen extends Component {
                         backgroundColor: "white"
                       }}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      // checked={this.state[task.key]}
+                      // onPress={() => this.handleCheck(task.key)}
+                      key={3}
+                      checked={this.state.marked.includes(3)}
+                      onPress={() => this.handleCheck(3)}
                     />
                   }
                 />
@@ -253,7 +252,6 @@ class WeekScreen extends Component {
               <Text
                 style={{
                   fontSize: 22,
-                  // color: "rgba(96,100,109, 1)",
                   color: "white",
                   backgroundColor: "#1E88E5",
                   textAlign: "center",
@@ -279,10 +277,11 @@ class WeekScreen extends Component {
                         backgroundColor: "white"
                       }}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      key={7}
+                      checked={this.state.marked.includes(7)}
+                      onPress={() => this.handleCheck(7)}
+                      // checked={this.state[task.key]}
+                      // onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
@@ -302,10 +301,9 @@ class WeekScreen extends Component {
                         backgroundColor: "white"
                       }}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      key={9}
+                      checked={this.state.marked.includes(9)}
+                      onPress={() => this.handleCheck(9)}
                     />
                   }
                 />
@@ -315,7 +313,6 @@ class WeekScreen extends Component {
               <Text
                 style={{
                   fontSize: 22,
-                  // color: "rgba(96,100,109, 1)",
                   color: "white",
                   backgroundColor: "#1976D2",
                   textAlign: "center",
@@ -341,10 +338,9 @@ class WeekScreen extends Component {
                         backgroundColor: "white"
                       }}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      key={17}
+                      checked={this.state.marked.includes(17)}
+                      onPress={() => this.handleCheck(17)}
                     />
                   }
                 />
@@ -354,7 +350,6 @@ class WeekScreen extends Component {
               <Text
                 style={{
                   fontSize: 22,
-                  // color: "rgba(96,100,109, 1)",
                   color: "white",
                   backgroundColor: "#1565C0",
                   textAlign: "center",
@@ -380,20 +375,20 @@ class WeekScreen extends Component {
                         backgroundColor: "white"
                       }}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      key={19}
+                      checked={this.state.marked.includes(19)}
+                      onPress={() => this.handleCheck(19)}
                     />
                   }
                 />
                 <ListItem
                   rightIcon={{ name: "lens", color: "#ffea00" }}
-                  //   key={task.key}
+                  //  key={task.key}
                   title={"other thing"}
                   fontFamily="playfair"
                   subtitle={`Completed: eventually`}
                   //   subtitle={`Completed: ${task.assigned}`}
+
                   leftIcon={
                     <CheckBox
                       containerStyle={{
@@ -402,53 +397,17 @@ class WeekScreen extends Component {
                         borderWidth: 0,
                         backgroundColor: "white"
                       }}
+                      key={15}
                       checkedColor={"#1E88E5"}
-                      // checkedIcon="dot-circle-o"
-                      // uncheckedIcon="circle-o"
-                      checked={this.state[task.key]}
-                      onPress={() => this.handleCheck(task.key)}
+                      checked={this.state.marked.includes(15)}
+                      onPress={() => this.handleCheck(15)}
+                      // checked={this.state[task.key]}
+                      // onPress={() => this.handleCheck(task.key)}
                     />
                   }
                 />
               </List>
             </Card>
-            {/* {chapter
-              ? chapter.subsections[0].sections.map(task => {
-                  return (
-                    <Card
-                      //   containerStyle={{ backgroundColor: "grey" }}
-                      style={{
-                        display: "flex",
-                        alignContent: "space-between"
-                      }}
-                    >
-                      <TouchableOpacity
-                        onPress={() => {
-                          //   console.log("this is pressed", task.contents)
-                          //   return this.makeList(task.contents);
-                          //   <Bullets points={task.contents} />;
-                          // console.log(this.makeList(task.contents));
-                        }}
-                      >
-                        <Text
-                          style={{
-                            fontSize: 28,
-                            // color: "rgba(96,100,109, 1)",
-                            color: "white",
-                            backgroundColor: "royalblue",
-                            textAlign: "center",
-                            fontFamily: "playfairBold"
-                          }}
-                        >
-                          {task.title}
-                        </Text>
-                      </TouchableOpacity>
-
-                      <Bullets points={task.contents} />
-                    </Card>
-                  );
-                })
-              : null} */}
           </View>
         </ScrollView>
       </SafeAreaView>

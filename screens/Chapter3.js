@@ -94,10 +94,7 @@ class ChapterThree extends Component {
       // }}
       >
         <ScrollView>
-          <LinearGradient
-            colors={["#90CAF9", "#2196F3", "#1976D2"]}
-            // style={{ padding: 15, alignItems: "center", borderRadius: 5 }}
-          >
+          <LinearGradient colors={["#90CAF9", "#80DEEA", "#4DD0E1"]}>
             <Text
               style={{
                 fontSize: 20,

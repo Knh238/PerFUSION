@@ -42,7 +42,7 @@ export default class ProgressScreen extends React.Component {
             marginBottom: 10
           }}
         >
-          {/* <Icon
+          <Icon
             raised
             name="pie-chart"
             type="font-awesome"
@@ -54,13 +54,13 @@ export default class ProgressScreen extends React.Component {
             //       chapter: this.state.chapter
             //     })
             //   }
-          /> */}
-          <LottieView
+          />
+          {/* <LottieView
             //source={require("../assets/images/dna_like_loader.json")}
             source={require("../assets/images/animated_laptop_.json")}
             autoPlay
             loop
-          />
+          /> */}
           <Text
             style={{
               fontSize: 25,
@@ -75,7 +75,7 @@ export default class ProgressScreen extends React.Component {
             {"\n"}
           </Text>
 
-          {/* <Icon
+          <Icon
             raised
             reverse
             // style={{ marginTop: 30 }}
@@ -88,7 +88,7 @@ export default class ProgressScreen extends React.Component {
             //       chapter: this.state.chapter
             //     })
             //   }
-          /> */}
+          />
           <Text
             style={{
               fontSize: 18,
@@ -102,7 +102,7 @@ export default class ProgressScreen extends React.Component {
             {"\n"}...Once I figure out how to: {"\n"}1. measure that{"\n"} 2.
             make the animation{"\n"}
           </Text>
-          {/* <Icon
+          <Icon
             raised
             name="pie-chart"
             type="font-awesome"
@@ -114,7 +114,7 @@ export default class ProgressScreen extends React.Component {
             //       chapter: this.state.chapter
             //     })
             //   }
-          /> */}
+          />
         </View>
       </ScrollView>
       /* </View> */

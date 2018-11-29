@@ -97,26 +97,17 @@ export default class HomeScreen extends React.Component {
               {"\n"}
             </Text>
             <Button
-              // icon={<Icon name="arrow-right" size={15} color="white" />}
               buttonStyle={{
                 backgroundColor: "rgb(66, 194, 244)",
                 borderWidth: 0,
                 borderRadius: 30,
-                // marginLeft: 35,
-                // marginRight: 35,
                 alignSelf: "center",
-                // marginTop: 10,
                 width: "55%"
               }}
               center
-              // Icon="arrowright"
               title="How to use this app"
               textStyle={{ fontFamily: "playfairBold" }}
-              // rightIcon="arrow"
             />
-            {/* <Icon name="arrowForward" /> */}
-            {/* <Icon name="arrowright" /> */}
-            {/* </Button> */}
 
             <TouchableOpacity
               onPress={this._handleHelpPress}
@@ -137,16 +128,6 @@ export default class HomeScreen extends React.Component {
                 American Board of Cardiovascular Perfusion
               </Text>
             </TouchableOpacity>
-            <Text
-              style={{
-                fontSize: 15,
-                color: "#D500F9",
-                textAlign: "center",
-                fontFamily: "patrick"
-              }}
-            >
-              (by the way their website sucks)
-            </Text>
           </View>
         </ScrollView>
 

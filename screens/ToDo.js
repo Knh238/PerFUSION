@@ -26,20 +26,30 @@ import { LinearGradient } from "expo";
 export default class Todo extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { marked: [] };
 
     // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
   }
   handleCheck(key) {
+    //eventually will have to update in databse
     // firebase
     //   .database()
-    //   .ref('tasks/' + key)
+    //   .ref('chapter/-LRU9y3vSSVlmxgkjUfT/sections' + key)
     //   .update({
-    //     completed: !this.state[key],
+    //     show: !this.state[key],
     //   })
     //   .then(
-    this.setState({ [key]: !this.state[key] });
+    // this.setState({ [key]: !this.state[key] });
+    //console.log("evt is -----", evt, "state also ----", this.state.show);
+    if (this.state.marked.includes(key)) {
+      const arr = this.state.marked.filter(a => a !== key);
+      this.setState({ marked: arr });
+    } else {
+      const alt = this.state.marked;
+      alt.push(key);
+      this.setState({ marked: alt });
+    }
   }
 
   render() {
@@ -69,99 +79,7 @@ export default class Todo extends React.Component {
           >
             To Do List:
           </Text>
-          {/* </Card>
-            <Card
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                marginLeft: 10,
-                marginRight: 10,
-                backgroundColor: "white"
-              }}
-              wrap
-            >
-              <Text
-                style={{
-                  fontSize: 16,
-                  color: "rgba(96,100,109, 1)",
-                  backgroundColor: "white",
-                  textAlign: "center",
-                  fontFamily: "playfairBold",
-                  marginLeft: 10,
-                  marginRight: 10
-                }}
-              >
-                Key:
-              </Text> */}
-          {/* <View
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  marginLeft: 10,
-                  marginRight: 10,
-                  backgroundColor: "white"
-                }}
-                wrap
-              > */}
-          {/* <Text
-                style={{
-                  fontSize: 13,
-                  color: "rgba(96,100,109, 1)",
-                  fontFamily: "playfair"
-                }}
-              >
-                High priority:
-              </Text>
-              <Icon
-                name="lens"
-                type="materialIcons"
-                color="#ff1744"
-                onPress={() => this.clickTwo()}
-              />
 
-              <Text
-                style={{
-                  fontSize: 13,
-                  color: "rgba(96,100,109, 1)",
-                  // color: "white",
-                  fontFamily: "playfair"
-                }}
-              >
-                Pretty important:
-              </Text>
-              <Icon
-                style={{ marginRight: 5 }}
-                name="lens"
-                type="materialIcons"
-                color="#ff9100"
-                onPress={() => this.clickTwo()}
-              />
-
-              <Text
-                style={{
-                  fontSize: 13,
-                  color: "rgba(96,100,109, 1)",
-                  //color: "white",
-                  // backgroundColor: "royalblue",
-                  // textAlign: "center",
-                  // justifyContent: "right",
-                  fontFamily: "playfair"
-                }}
-              >
-                Lower priority:
-              </Text>
-              <Icon
-                // style={{ justifyContent: "flex-end" }}
-                name="lens"
-                type="materialIcons"
-                color="#ffea00"
-                onPress={() => this.clickTwo()}
-              />
-            </Card> */}
-          {/* </View> */}
-          {/* <Card> */}
           <List style={{ padding: 10 }}>
             <ListItem
               //rightIcon={{ name: "lens", color: "#" + task.color }}
@@ -185,10 +103,9 @@ export default class Todo extends React.Component {
                     backgroundColor: "white"
                   }}
                   checkedColor={"#1E88E5"}
-                  // checkedIcon="dot-circle-o"
-                  // uncheckedIcon="circle-o"
-                  checked={this.state[task.key]}
-                  onPress={() => this.handleCheck(task.key)}
+                  key={6}
+                  checked={this.state.marked.includes(6)}
+                  onPress={() => this.handleCheck(6)}
                 />
               }
             />
@@ -212,17 +129,13 @@ export default class Todo extends React.Component {
                     backgroundColor: "white"
                   }}
                   checkedColor={"#1E88E5"}
-                  // checkedIcon="dot-circle-o"
-                  // uncheckedIcon="circle-o"
-                  checked={this.state[task.key]}
-                  onPress={() => this.handleCheck(task.key)}
+                  key={2}
+                  checked={this.state.marked.includes(2)}
+                  onPress={() => this.handleCheck(2)}
                 />
               }
             />
           </List>
-          {/* </Card> */}
-
-          {/* </View> */}
         </ScrollView>
       </View>
     );
